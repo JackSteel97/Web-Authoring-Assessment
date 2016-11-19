@@ -1,0 +1,25 @@
+#twitterFeed{
+    float: right;
+    display: inline-block;
+}
+
+#categories{
+    display: inline-block;
+    float:left;
+    margin-left: 5px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#categories li{
+    list-style:none;
+    margin-bottom: 10px;
+}
+
+#intro{
+   clear:both;
+}
+
+#featuredSlideShow{
+    text-align: center;
+}
