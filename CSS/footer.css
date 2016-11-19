@@ -3,22 +3,48 @@ footer{
     color:whitesmoke;
     clear:both;
     width:100%;
+    padding-bottom:20px;
+    padding-top:20px;
+    box-shadow: 0px -10px 20px 0px rgba(0,0,0,0.2);
+    
 }
 
-footer #navList li a{
+#navList li a{
     color: whitesmoke;
 }
 
-footer #navList li{
+#navList li{
     margin:5px;
+    display:inline-block;
 }
 
 footer #nav{
     padding:20px;
+    display:inline;
 }
 
 #navList{
     list-style: none;
+    display:inline;
+    text-align: center;
+}
+
+#address{
+    float:right;
+    display:inline;
+    text-align: center;
+    margin-right: 20px;
+}
+
+#address ul{
+    list-style: none;
+    display:inline;
+    text-align: center;
+}
+
+#address ul li{
+    margin:5px;
+    display:inline-block;
 }
 
 
