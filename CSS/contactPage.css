@@ -1,0 +1,23 @@
+#contactDetails{
+	margin-top: 30px;
+}
+
+#detailsList{
+	list-style: none;
+	text-align: center;
+	margin-top: 25px;
+}
+
+#detailsList li{
+	margin-bottom: 20px
+}
+
+#mapFrame{
+	width:100%;
+}
+
+#map{
+	margin-bottom: 30px;
+	margin-top: 30px;
+	
+}

@@ -7,8 +7,13 @@ p{
     margin:20px;
 }
 
+h1{
+    color: #0d0d0d;
+}
+
 nav{
-    margin-bottom: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.2);
 }
 
 #navBar{
@@ -72,4 +77,9 @@ li a:visited{
      background-color: #808080;
 }
 
+
+.title{
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
+	text-align: center;
+}
 
