@@ -65,19 +65,17 @@ function ObjMtlLoad(path, objName, mtlName, rotateRads = 0) {
 }
 
 function onDocumentMouseUp(event) {
-	console.log("mouseUp")
-	mouseX = event.clientX;
-	mouseY = event.clientY;
-	var mouseVector = new THREE.Vector2();
-	mouseVector.x = mouseX;
-	mouseVector.y = mouseY
-	var raycaster = new THREE.Raycaster();
-	raycaster.setFromCamera(mouseVector, camera);
-	var intersects = raycaster.intersectObjects(scene.children);
-	for (var i = 0; i < intersects.length; i++) {
-		console.log(intersects[i]);
-		intersects[i].object.material.color.set(0x0000ff);
-	}
+	var mouse = new THREE.Vector2();
+    console.log("mouseUp")
+    mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+    mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+    var raycaster = new THREE.Raycaster();
+    raycaster.setFromCamera(mouse, camera);
+    var intersects = raycaster.intersectObjects(scene.children,true);
+    if(intersects.length>0 && painting)
+        console.log(intersects[0]);
+        intersects[0].object.material.color.set(paintColour);
+    }
 }
 
 function onWindowResize() {
