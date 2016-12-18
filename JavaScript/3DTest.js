@@ -19,48 +19,66 @@ function init() {
 		antialias: true
 	});
 	camera = new THREE.PerspectiveCamera(35, SCREEN_WIDTH / SCREEN_HEIGHT, 10, 100)
-	camera.position.z = 20;
+	camera.position.z = 100;
 	scene = new THREE.Scene();
 	scene.background = new THREE.Color(0xffffff);
 	scene.add(new THREE.AmbientLight(0xffffff, 1));
 	var light = new THREE.DirectionalLight(0xffffff, 1);
 	light.position.set(1, 1, 1);
 	scene.add(light);
-	//model
+	controls = new THREE.OrbitControls(camera, renderer.domElement);
+	controls.target = new THREE.Vector3(0, 0, 0);
+	controls.enableDamping = true;
+	controls.dampingFactor = 0.25;
+	controls.enableZoom = true;
+	controls.autoRotate = true;
+	ObjMtlLoad('Models/Aventador/', 'Avent.obj', 'Avent.mtl');
+	//ObjMtlLoad('Models/Blackhawk/','uh60.obj','uh60.mtl',-Math.PI/2);
+	renderer.setPixelRatio(window.devicePixelRatio);
+	renderer.setSize(window.innerWidth, window.innerHeight);
+	container.appendChild(renderer.domElement);
+	document.addEventListener('mouseup', onDocumentMouseUp, false);
+	document.addEventListener('resize', onWindowResize, false);
+}
+
+function ObjMtlLoad(path, objName, mtlName, rotateRads = 0) {
 	var onProgress = function (xhr) {
 		if (xhr.lengthComputable) {
 			var percentComplete = (xhr.loaded / xhr.total) * 100;
 			console.log(Math.round(percentComplete, 2) + "% downloaded");
 		}
 	};
-
 	var onError = function (xhr) {};
-
-	controls = new THREE.OrbitControls(camera, renderer.domElement);
-	controls.target = new THREE.Vector3(0, 0, 0);
-
-	controls.enableDamping = true;
-	controls.dampingFactor = 0.25;
-	controls.enableZoom = true;
-	controls.autoRotate = true;
 	var mtlLoader = new THREE.MTLLoader();
-	mtlLoader.setPath('Models/Aventador/');
-	mtlLoader.load('Avent.mtl', function (materials) {
+	mtlLoader.setPath(path);
+	mtlLoader.load(mtlName, function (materials) {
 		materials.preload();
 		var objLoader = new THREE.OBJLoader();
 		objLoader.setMaterials(materials);
-		objLoader.setPath('Models/Aventador/');
-		objLoader.load('Avent.obj', function (object) {
+		objLoader.setPath(path);
+		objLoader.load(objName, function (object) {
 			object.position.y = 0;
+			object.rotateX(rotateRads);
 			scene.add(object);
 		}, onProgress, onError);
 	});
-	renderer.setPixelRatio(window.devicePixelRatio);
-	renderer.setSize(window.innerWidth, window.innerHeight);
-	container.appendChild(renderer.domElement);
-	document.addEventListener('resize', onWindowResize, false);
 }
 
+function onDocumentMouseUp(event) {
+	console.log("mouseUp")
+	mouseX = event.clientX;
+	mouseY = event.clientY;
+	var mouseVector = new THREE.Vector2();
+	mouseVector.x = mouseX;
+	mouseVector.y = mouseY
+	var raycaster = new THREE.Raycaster();
+	raycaster.setFromCamera(mouseVector, camera);
+	var intersects = raycaster.intersectObjects(scene.children);
+	for (var i = 0; i < intersects.length; i++) {
+		console.log(intersects[i]);
+		intersects[i].object.material.color.set(0x0000ff);
+	}
+}
 
 function onWindowResize() {
 	windowHalfx = window.innerWidth / 2;
@@ -70,14 +88,12 @@ function onWindowResize() {
 	renderer.setSize(window.innerWidth, window.innerHeight)
 }
 
-
 function draw() {
 	requestAnimationFrame(draw);
 	render();
 }
 
 function render() {
-
 	controls.update();
 	renderer.render(scene, camera);
 }
