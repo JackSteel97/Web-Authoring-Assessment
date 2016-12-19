@@ -1,7 +1,7 @@
 $(document).ready(function ($) {
 	console.log("ready");
 	var prodArr = init();
-
+	console.log(prodArr);
 });
 
 function init() {
