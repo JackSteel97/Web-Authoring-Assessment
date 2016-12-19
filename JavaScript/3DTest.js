@@ -18,7 +18,7 @@ function init() {
 	renderer = new THREE.WebGLRenderer({
 		antialias: true
 	});
-	camera = new THREE.PerspectiveCamera(35, SCREEN_WIDTH / SCREEN_HEIGHT, 10, 100)
+	camera = new THREE.PerspectiveCamera(45, SCREEN_WIDTH / SCREEN_HEIGHT, 10, 100)
 	camera.position.z = 100;
 	scene = new THREE.Scene();
 	scene.background = new THREE.Color(0xffffff);
@@ -31,7 +31,7 @@ function init() {
 	controls.enableDamping = true;
 	controls.dampingFactor = 0.25;
 	controls.enableZoom = true;
-	controls.autoRotate = true;
+	controls.autoRotate = false;
 	ObjMtlLoad('Models/Aventador/', 'Avent.obj', 'Avent.mtl');
 	//ObjMtlLoad('Models/Blackhawk/','uh60.obj','uh60.mtl',-Math.PI/2);
 	renderer.setPixelRatio(window.devicePixelRatio);
@@ -72,7 +72,7 @@ function onDocumentMouseUp(event) {
     var raycaster = new THREE.Raycaster();
     raycaster.setFromCamera(mouse, camera);
     var intersects = raycaster.intersectObjects(scene.children,true);
-    if(intersects.length>0 && painting)
+    if(intersects.length>0 && painting){
         console.log(intersects[0]);
         intersects[0].object.material.color.set(paintColour);
     }
