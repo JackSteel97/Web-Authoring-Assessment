@@ -15,6 +15,7 @@ function init() {
 							  "Avent.obj",
 							  "Avent.mtl",
 							  0));
+
 	//blackhawk
 	Products.push(new Product("UH-60 Blackhawk",
 							  "The Sikorsky UH-60 Black Hawk is a four-bladed, twin-engine, medium-lift utility helicopter manufactured by Sikorsky Aircraft. Sikorsky submitted the S-70 design for the United States Army's Utility Tactical Transport Aircraft System (UTTAS) competition in 1972. The Army designated the prototype as the YUH-60A and selected the Black Hawk as the winner of the program in 1976, after a fly-off competition with the Boeing Vertol YUH-61.",

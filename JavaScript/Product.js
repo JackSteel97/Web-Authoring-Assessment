@@ -44,12 +44,12 @@ Product.prototype = {
 		this.price = aPrice;
 	}
 	, calculateNewPrice: function () {
-		upgrades.forEach(function (element) {
-			this.price += element.getPrice();
-		})
+		for (var i = 0; i < this.upgrades.length; i++) {
+			console.log(this.upgrades[i].getPrice());
+			this.price += this.upgrades[i].getPrice();
+		}
 	}
 	, addUpgrade: function (upgradeName, upgradePrice, upgradeValue) {
-		var alteration = new Upgrade(upgradeName, upgradePrice, upgradeValue);
-		this.upgrades.push(alteration);
+		this.upgrades.push(new Upgrade(upgradeName, upgradePrice, upgradeValue));
 	}
-, }
+}
