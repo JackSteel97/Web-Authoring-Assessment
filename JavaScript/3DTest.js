@@ -3,6 +3,9 @@ var mouseX = 0
 	, mouseY = 0;
 var controls
 var windowHalfx, windowHalfY;
+var painting = false;
+var paintColour = 0xcc00cc;
+
 $(document).ready(function ($) {
 	SCREEN_HEIGHT = window.innerHeight;
 	SCREEN_WIDTH = window.innerWidth;
@@ -18,7 +21,7 @@ function init() {
 	renderer = new THREE.WebGLRenderer({
 		antialias: true
 	});
-	camera = new THREE.PerspectiveCamera(45, SCREEN_WIDTH / SCREEN_HEIGHT, 10, 100)
+	camera = new THREE.PerspectiveCamera(45, SCREEN_WIDTH / SCREEN_HEIGHT, 1,20000)
 	camera.position.z = 100;
 	scene = new THREE.Scene();
 	scene.background = new THREE.Color(0xffffff);
@@ -32,12 +35,22 @@ function init() {
 	controls.dampingFactor = 0.25;
 	controls.enableZoom = true;
 	controls.autoRotate = false;
-	ObjMtlLoad('Models/Aventador/', 'Avent.obj', 'Avent.mtl');
+	//ObjMtlLoad('Models/Aventador/', 'Avent.obj', 'Avent.mtl');
 	//ObjMtlLoad('Models/Blackhawk/','uh60.obj','uh60.mtl',-Math.PI/2);
+	//ObjMtlLoad('Models/Boeing787/', 'Boeing_787_8.obj', 'Boeing_787_8.mtl');
+	//ObjMtlLoad('Models/RowBoat/', 'OldBoat.obj', 'OldBoat.mtl');
+	//ObjMtlLoad('Models/Yacht/', 'yacht.obj', 'yacht.mtl');
+	//ObjMtlLoad('Models/M1A2/', 'Abrams_BF3.obj', 'Abrams_BF3.mtl');
+
 	renderer.setPixelRatio(window.devicePixelRatio);
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	container.appendChild(renderer.domElement);
-	document.addEventListener('mouseup', onDocumentMouseUp, false);
+	//add event listener only for left mouse button
+	$(document).mousedown(function(eventData) {
+    if (eventData.which === 1) {
+        onDocumentMouseDown(eventData);
+    }
+});
 	document.addEventListener('resize', onWindowResize, false);
 }
 
@@ -64,9 +77,9 @@ function ObjMtlLoad(path, objName, mtlName, rotateRads = 0) {
 	});
 }
 
-function onDocumentMouseUp(event) {
+function onDocumentMouseDown(event) {
 	var mouse = new THREE.Vector2();
-    console.log("mouseUp")
+    console.log("mouse down")
     mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
     mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
     var raycaster = new THREE.Raycaster();
