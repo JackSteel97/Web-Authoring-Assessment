@@ -21,11 +21,11 @@ function init() {
 	renderer = new THREE.WebGLRenderer({
 		antialias: true
 	});
-	camera = new THREE.PerspectiveCamera(45, SCREEN_WIDTH / SCREEN_HEIGHT, 1,20000)
+	camera = new THREE.PerspectiveCamera(45, SCREEN_WIDTH / SCREEN_HEIGHT, 1,20000);
 	camera.position.z = 100;
 	scene = new THREE.Scene();
 	scene.background = new THREE.Color(0xffffff);
-	scene.add(new THREE.AmbientLight(0xffffff, 1));
+	scene.add(new THREE.AmbientLight(0xffffff, 0.8));
 	var light = new THREE.DirectionalLight(0xffffff, 1);
 	light.position.set(1, 1, 1);
 	scene.add(light);
@@ -40,7 +40,7 @@ function init() {
 	//ObjMtlLoad('Models/Boeing787/', 'Boeing_787_8.obj', 'Boeing_787_8.mtl');
 	//ObjMtlLoad('Models/RowBoat/', 'OldBoat.obj', 'OldBoat.mtl');
 	//ObjMtlLoad('Models/Yacht/', 'yacht.obj', 'yacht.mtl');
-	//ObjMtlLoad('Models/M1A2/', 'Abrams_BF3.obj', 'Abrams_BF3.mtl');
+	ObjMtlLoad('Models/M1A2/', 'Abrams_BF3.obj', 'Abrams_BF3.mtl');
 
 	renderer.setPixelRatio(window.devicePixelRatio);
 	renderer.setSize(window.innerWidth, window.innerHeight);
