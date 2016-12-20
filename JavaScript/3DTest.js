@@ -35,12 +35,12 @@ function init() {
 	controls.dampingFactor = 0.25;
 	controls.enableZoom = true;
 	controls.autoRotate = false;
-	//ObjMtlLoad('Models/Aventador/', 'Avent.obj', 'Avent.mtl');
+	ObjMtlLoad('Models/Aventador/', 'Avent.obj', 'Avent.mtl');
 	//ObjMtlLoad('Models/Blackhawk/','uh60.obj','uh60.mtl',-Math.PI/2);
 	//ObjMtlLoad('Models/Boeing787/', 'Boeing_787_8.obj', 'Boeing_787_8.mtl');
 	//ObjMtlLoad('Models/RowBoat/', 'OldBoat.obj', 'OldBoat.mtl');
 	//ObjMtlLoad('Models/Yacht/', 'yacht.obj', 'yacht.mtl');
-	ObjMtlLoad('Models/M1A2/', 'Abrams_BF3.obj', 'Abrams_BF3.mtl');
+	//ObjMtlLoad('Models/M1A2/', 'Abrams_BF3.obj', 'Abrams_BF3.mtl');
 
 	renderer.setPixelRatio(window.devicePixelRatio);
 	renderer.setSize(window.innerWidth, window.innerHeight);
