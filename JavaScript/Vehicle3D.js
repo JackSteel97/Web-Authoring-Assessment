@@ -15,7 +15,7 @@ function Vehicle3D(theContainer, theProduct, theAllowZoom = false, theCameraStar
 	//instantiate the controls for the user moving the camera
 	this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
 	//set painting defaults
-	this.painting = false;
+	this.painting = true;
 	this.paintColour = 0x0000cc;
 	//set other parameters passed in for later use
 	this.cameraStartDistance = theCameraStartDistance;

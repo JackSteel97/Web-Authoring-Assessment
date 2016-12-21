@@ -50,6 +50,13 @@ Product.prototype = {
 		}
 	}
 	, addUpgrade: function (upgradeName, upgradePrice, upgradeValue) {
+		for (var i = 0; i < this.upgrades.length; i++) {
+			if (this.upgrades[i].getName.toString().toLowerCase() == upgradeName.toLowerCase()) {
+				this.upgrades[i].setPrice(upgradePrice);
+				this.upgrades[i].setValue(upgradeValue);
+				return;
+			}
+		}
 		this.upgrades.push(new Upgrade(upgradeName, upgradePrice, upgradeValue));
 	}
 }
