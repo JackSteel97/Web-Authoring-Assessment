@@ -1,7 +1,7 @@
 $(document).ready(function ($) {
 	console.log("ready");
 	var prodArr = init();
-	console.log(prodArr);
+
 });
 
 function init() {
@@ -58,7 +58,7 @@ function init() {
 							  2));
 
 	//Yacht
-	Products.push(new Products("Yacht",
+	Products.push(new Product("Yacht",
 							  "A Stylish traditional yacht.",
 							   20000,
 							   "Images/thumbnails/Yacht.png",
