@@ -2,7 +2,6 @@ $(document).ready(function ($) {
     console.log("ready");
     var prodArr = init();
     var typeSelector = 0;
-    console.log(CURRENT_PAGE);
     switch (CURRENT_PAGE) {
     case "air":
         typeSelector = 1;
@@ -14,20 +13,32 @@ $(document).ready(function ($) {
         typeSelector = 0;
         break;
     }
-    console.log(typeSelector);
     for (var i = 0; i < prodArr.length; i++) {
-        console.log(prodArr[i].getType());
         if (prodArr[i].getType() == typeSelector) {
             //belongs on this page
-            addProductToGrid(prodArr[i]);
+            addProductToGrid(prodArr[i], i);
         }
     }
+    $(".productContainer").click(function(event){
+        onProductGridItemClick(prodArr,$(this));
+    });
 });
 
-function addProductToGrid(prod) {
-    var prodAsHTMLItem = '<li><div id="product1" class="productContainer"><img src="' + prod.getThumbnailPath() + '" class="productThumb"/><div class="productDescriptor"><p class="productTitle">' + prod.getName() + '</p><p class="productPrice">£' + prod.getBasePrice().toLocaleString('en-UK', {minimumFractionDigits: 2}) + '</p></div></div></li>';
-    console.log(prod);
-    console.log(prodAsHTMLItem);
+function openProductPage(){
+    //TODO: redirect to individual product page here
+}
+
+function onProductGridItemClick(prodArr, element){
+    var index = element.data("index");
+    var thisProduct = prodArr[index];
+    localStorage.setItem("currentProduct",JSON.stringify(thisProduct));
+    openProductPage();
+}
+
+function addProductToGrid(prod, index) {
+    var prodAsHTMLItem = '<li><div data-index="' + index + '" class="productContainer"><img src="' + prod.getThumbnailPath() + '" class="productThumb"/><div class="productDescriptor"><p class="productTitle">' + prod.getName() + '</p><p class="productPrice">£' + prod.getBasePrice().toLocaleString('en-UK', {
+        minimumFractionDigits: 2
+    }) + '</p></div></div></li>';
     $("#productSection ul").append(prodAsHTMLItem);
 }
 
