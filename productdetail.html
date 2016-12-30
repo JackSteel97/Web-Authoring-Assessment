@@ -1,115 +1,87 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <title>BROIBAC - Product</title>
-
     <link rel="icon" type="image/png" href="images/logo/icon.png" />
     <link rel="stylesheet" type="text/css" href="CSS/navBar.css" />
-    <link rel="stylesheet" type="text/css" href="CSS/footer.css"/>
-    <link rel="stylesheet" type="text/css" href="CSS/productDetails.css"/>
+    <link rel="stylesheet" type="text/css" href="CSS/footer.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/productDetails.css" /> </head>
 
-
-</head>
 <body>
     <header>
         <nav>
             <ul id="navBar">
-                <li class="navBtn" id="homeBtn"><a href="index.html">Home</a></li>
-
-                |
-
+                <li class="navBtn" id="homeBtn"><a href="index.html">Home</a></li> |
                 <li class="navBtn" id="productBtn">
-
-                    <div class="dropdown">
-                        Products
-                        <div class="dropdown-content">
-                            <a href="land.html">Land</a>
-                            <a href="air.html">Air</a>
-                            <a href="sea.html">Sea</a>
-                        </div>
-
+                    <div class="dropdown"> Products
+                        <div class="dropdown-content"> <a href="land.html">Land</a> <a href="air.html">Air</a> <a href="sea.html">Sea</a> </div>
                     </div>
-
                 </li>
-
                 <li class="navBtn" id="navLogo">
-                    <a href="index.html">
-                        <img id="logo" src="images/logo/small.png" alt="BROIBAC Logo" width="10%" />
-                    </a>
+                    <a href="index.html"> <img id="logo" src="images/logo/small.png" alt="BROIBAC Logo" width="10%" /> </a>
                 </li>
-
-                <li class="navBtn" id="eventsBtn"><a href="events.html">Events</a></li>
-
-                |
-
+                <li class="navBtn" id="eventsBtn"><a href="events.html">Events</a></li> |
                 <li class="navBtn" id="contactBtn"><a href="contact.html">Contact</a></li>
             </ul>
-
         </nav>
-
-
     </header>
-
     <section>
-
         <div id="Container3D"></div>
-        <p id="controls">Left Click - Paint&emsp;&emsp;Right Mouse - Pan camera&emsp;&emsp;Scroll Wheel - Zoom</p>
+        <p id="controls">Left Click - Paint&emsp;&emsp;Right Mouse - Pan Camera&emsp;&emsp;Scroll Wheel - Zoom</p>
         <section id="details">
-        <article id="productInfo">
-            <div class="title">
-                <h1 id="prodName">Product Name</h1>
-            </div>
-            <h3 id="prodBasePrice">£50,000</h3>
 
-            <p id="prodDescription">This is a description of this product</p>
+            <article id="productInfo">
+                <div class="title">
+                    <h1 id="prodName">Product Name</h1> </div>
+                <h3 id="prodBasePrice">£50,000</h3>
+                <p id="prodDescription">This is a description of this product</p>
+            </article>
 
-        </article>
+            <article id="totaller">
+                <div class="title">
+                    <h1>Total</h1></div>
+                <h2 id="totalPrice">£55,000</h2>
+                <ul id="partsList">
+                    <li><span class="leftPart"></span><span class="rightPart"></span></li>
+                </ul>
+            </article>
 
-        <article id="totaller">
-            <div class="title"><h1>Total</h1></div>
-            <div class="separator">
-            <h2 id="totalPrice">£55,000</h2>
-            <ul id="partsList">
-                <li><span class="leftPart"></span><span class="rightPart"></span></li>
-            </ul>
-            </div>
-        </article>
-        <article id="config">
-            <div class="title">
-                <h1>Customise</h1>
-            </div>
-            <ul id="configurator">
-                <li>
-                    <label for="colourPicker">Paint Colour</label>
-                    <input id="colourPicker" type="color" value="#ff0000" />
-                </li>
-            </ul>
-        </article>
+            <article id="config">
+                <div class="title">
+                    <h1>Customise</h1> </div>
+                <ul id="configurator">
+                    <li>
+                        <label for="colourPicker">Paint Colour: </label>
+                        <input id="colourPicker" type="color" value="#ff0000" /> </li>
+                </ul>
+            </article>
         </section>
     </section>
-
     <footer>
-			<div id="nav">
-				<ul id="navList">
-					<li><a href="index.html">Home</a></li>
-					<li><hr/></li>
-					<li><a href="land.html">Land</a></li>
-					<li><a href="air.html">Air</a></li>
-					<li><a href="sea.html">Sea</a></li>
-					<li><hr/></li>
-					<li><a href="events.html">Events</a></li>
-					<li><a href="contact.html">Contact</a></li>
-				</ul>
-			</div>
-
-			<div id="address">
-				<ul>
-					<li>Brayford Pool, Lincoln, LN6 7TS</li>
-				</ul>
-			</div>
-
-		</footer>
+        <div id="nav">
+            <ul id="navList">
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <hr/>
+                </li>
+                <li><a href="land.html">Land</a></li>
+                <li><a href="air.html">Air</a></li>
+                <li><a href="sea.html">Sea</a></li>
+                <li>
+                    <hr/>
+                </li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div id="address">
+            <ul>
+                <li>Brayford Pool, Lincoln, LN6 7TS</li>
+            </ul>
+        </div>
+    </footer>
 </body>
+
 </html>

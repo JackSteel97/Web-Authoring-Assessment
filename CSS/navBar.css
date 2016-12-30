@@ -1,51 +1,56 @@
-*{
-    padding:0px;
-    margin:0px;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700,800&subset=latin-ext');
+
+* {
+    padding: 0px;
+    margin: 0px;
 }
 
-p{
-    margin:20px;
+body {
+    font-family: 'Open Sans', sans-serif;
 }
 
-h1{
+p {
+    margin: 20px;
+}
+
+h1 {
     color: #0d0d0d;
 }
 
-nav{
+nav {
     margin-bottom: 25px;
-    box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
 }
 
-#navBar{
-    text-align:center;
-    font-family:sans-serif;
-    font-size:28px;
+#navBar {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 28px;
 }
 
-#navBar li{
-    display:inline;
-    padding-left:5%;
-    padding-right:5%;
-    
+#navBar li {
+    display: inline;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
-#logo{
-    vertical-align:middle;
+#logo {
+    vertical-align: middle;
 }
 
-li a{
-    text-decoration:none;
-    color:black;
+li a {
+    text-decoration: none;
+    color: black;
 }
 
-li a:hover{
-    text-decoration:none;
-    color:black;
+li a:hover {
+    text-decoration: none;
+    color: black;
 }
 
-li a:visited{
-    text-decoration:none;
-    color:black;
+li a:visited {
+    text-decoration: none;
+    color: black;
 }
 
 .dropdown {
@@ -58,7 +63,7 @@ li a:visited{
     position: absolute;
     background-color: #ffffff;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -73,13 +78,11 @@ li a:visited{
     display: block;
 }
 
-.dropdown-content a:hover{
-     background-color: #808080;
+.dropdown-content a:hover {
+    background-color: #808080;
 }
 
-
-.title{
-    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
-	text-align: center;
+.title {
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
-

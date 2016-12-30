@@ -1,61 +1,69 @@
-#Container3D{
-    width:100%;
-    height:500px;
+#Container3D {
+    width: 100%;
+    height: 500px;
     /*Testing*/
     background-color: black;
 }
 
-#controls{
-    opacity:0.5;
-    margin:0px;
+#controls {
+    opacity: 0.5;
+    margin: 0px;
     text-align: center;
-    width:100%;
+    width: 100%;
 }
 
-#productInfo{
-    width:40%;
-    flex:1;
+#productInfo {
+    width: 40%;
+    flex: 1;
 }
 
-#config{
-    width:40%;
-    flex:1;
+#config {
+    width: 40%;
+    flex: 1;
 }
 
-.title{
-    display:inline-block;
-    width:100%;
-    margin:0px;
-    padding:0px;
+.title {
+    display: inline-block;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
-#totaller{
-    width:20%;
-    flex:1;
+#totaller {
+    width: 20%;
+    flex: 1;
     border-left-style: solid;
     border-right-style: solid;
     border-left-width: thin;
     border-right-width: thin;
 }
-#partsList{
+
+#partsList {
     list-style: none;
 }
 
-.leftPart{
-    float:left;
-    display:inline-block;
-    text-align:left;
+.leftPart {
+    float: left;
+    display: inline-block;
+    text-align: left;
 }
 
-.rightPart{
-    float:right;
-    display:inline-block;
+.rightPart {
+    float: right;
+    display: inline-block;
     text-align: right;
 }
-.separator{
 
+#details {
+    display: flex;
 }
 
-#details{
-    display:flex;
+#prodBasePrice {
+    font-weight: normal;
+    margin-left: 20px;
+    text-decoration: underline;
+}
+
+#prodDescription{
+
 }
