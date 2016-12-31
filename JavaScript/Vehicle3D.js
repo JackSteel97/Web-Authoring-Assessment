@@ -1,9 +1,10 @@
-function Vehicle3D(theContainer, theProduct, theAllowZoom = false, theCameraStartDistance = 10, theCameraStartHeight = 5, theAutoRotate = false) {
+function Vehicle3D(theContainer, theProduct, theAllowZoom = false, theCameraStartDistance = 10, theCameraStartHeight = 5, rotationNeeded = 0, theAutoRotate = false) {
 	//container is the element the model will be drawn inside
 	this.container = theContainer;
 	//screen width and height are the width and height of the container i.e. the amount of space the renderer has available to draw in
 	this.SCREEN_WIDTH = theContainer.offsetWidth;
 	this.SCREEN_HEIGHT = theContainer.offsetHeight;
+    console.log(this.SCREEN_HEIGHT);
 	//declare a new camera object, FOV = 45, set aspect ratio, set near and far render distance
 	this.camera = new THREE.PerspectiveCamera(45, this.SCREEN_WIDTH / this.SCREEN_HEIGHT, 1, 20000);
 	//instantiate a scene object
@@ -16,13 +17,14 @@ function Vehicle3D(theContainer, theProduct, theAllowZoom = false, theCameraStar
 	this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
 	//set painting defaults
 	this.painting = true;
-	this.paintColour = 0x0000cc;
+	this.paintColour = 0xff0000;
 	//set other parameters passed in for later use
 	this.cameraStartDistance = theCameraStartDistance;
 	this.cameraStartHeight = theCameraStartHeight;
 	this.autoRotate = theAutoRotate;
 	this.allowZoom = theAllowZoom;
 	this.product = theProduct;
+    this.rotateXRads = rotationNeeded;
 	//start initialisation
 	this.init();
 	this.draw();
@@ -53,7 +55,7 @@ Vehicle3D.prototype = {
 		this.controls.enableZoom = this.allowZoom;
 		this.controls.autoRotate = this.autoRotate;
 		//load in the model, pass the correct context through
-		this.ObjMtlLoad(this.product.getBasePath(), this.product.getObjFile(), this.product.getMtlFile(), this);
+		this.ObjMtlLoad(this.product.getBasePath(), this.product.getObjFile(), this.product.getMtlFile(), this,this.rotateXRads);
 		//set up renderer
 		this.renderer.setPixelRatio(window.devicePixelRatio);
 		this.renderer.setSize(this.SCREEN_WIDTH, this.SCREEN_HEIGHT);
@@ -115,8 +117,10 @@ Vehicle3D.prototype = {
 		var mouse = new THREE.Vector2();
 		console.log("mouse down");
 		//get the coords of the mouse click, calculate coords for the click inside the scene and normalise
-		mouse.x = (event.clientX / this.SCREEN_WIDTH) * 2 - 1;
-		mouse.y = -(event.clientY / this.SCREEN_HEIGHT) * 2 + 1;
+        var X = event.clientX - this.container.offsetLeft;
+        var Y = event.clientY - this.container.offsetTop;
+		mouse.x = (X / this.SCREEN_WIDTH) * 2 - 1;
+		mouse.y = -(Y / this.SCREEN_HEIGHT) * 2 + 1;
 		//instantiate a Raycaster object
 		var raycaster = new THREE.Raycaster();
 		//set up to cast from the camera to where the mouse click occured
@@ -124,6 +128,7 @@ Vehicle3D.prototype = {
 		//get all the meshes that the ray vector instersects
 		var intersects = raycaster.intersectObjects(this.scene.children, true);
 		//if it intersects something and we are in painting mode
+        this.scene.add(new THREE.ArrowHelper( raycaster.ray.direction, raycaster.ray.origin, 100, Math.random() * 0xffffff ));
 		if (intersects.length > 0 && this.painting) {
 			console.log(intersects[0]);
 			//paint the first mesh intersected

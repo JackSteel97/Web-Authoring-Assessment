@@ -26,7 +26,7 @@ $(document).ready(function ($) {
 
 function openProductPage() {
     console.log("open product page")
-        //TODO: redirect to individual product page here
+        window.location.href = "productdetail.html";
 }
 
 function onProductGridItemClick(prodArr, element) {
@@ -54,6 +54,6 @@ function init() {
     //Row Boat
     Products.push(new Product("Row Boat", "A simple wooden rowing boat.", 500, "Images/thumbnails/products/RowBoat.png", "Models/RowBoat/", "OldBoat.obj", "OldBoat.mtl", 2));
     //Yacht
-    Products.push(new Product("Yacht", "A Stylish traditional yacht.", 20000, "Images/thumbnails/products/Yacht.png", "Models/Yacht", "yacht.obj", "yacht.mtl", 2));
+    Products.push(new Product("Yacht", "A Stylish traditional yacht.", 20000, "Images/thumbnails/products/Yacht.png", "Models/Yacht/", "yacht.obj", "yacht.mtl", 2));
     return Products;
 }
