@@ -127,8 +127,9 @@ Vehicle3D.prototype = {
 		raycaster.setFromCamera(mouse, this.camera);
 		//get all the meshes that the ray vector instersects
 		var intersects = raycaster.intersectObjects(this.scene.children, true);
-		//if it intersects something and we are in painting mode
-        this.scene.add(new THREE.ArrowHelper( raycaster.ray.direction, raycaster.ray.origin, 100, Math.random() * 0xffffff ));
+
+        //this.scene.add(new THREE.ArrowHelper( raycaster.ray.direction, raycaster.ray.origin, 100, Math.random() * 0xffffff ));
+        //if it intersects something and we are in painting mode
 		if (intersects.length > 0 && this.painting) {
 			console.log(intersects[0]);
 			//paint the first mesh intersected

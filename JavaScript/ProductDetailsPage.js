@@ -12,6 +12,11 @@ $(document).ready(function($){
     var startHeight = 5;
     var rotationNeeded = 0;
 
+    $("#prodName").text(product.getName());
+    $("#prodBasePrice").text("£" + product.getBasePrice().toLocaleString('en-UK',{minimumFractionDigits: 2}));
+    $("#prodDescription").text(product.getDescription());
+    $("#totalPrice").text("£" + product.getPrice().toLocaleString('en-UK',{minimumFractionDigits: 2}));
+
     switch(product.getName()){
         case "Lamborghini Aventador":
             startDistance = 10;
@@ -48,6 +53,12 @@ $(document).ready(function($){
 
 
     var vehicle3DHandler = new Vehicle3D(document.getElementById("Container3D"),product,true,startDistance,startHeight,rotationNeeded);
+
+    $("#colourPicker").change(function(event){
+        console.log(this.value);
+        vehicle3DHandler.setPaintColour(this.value);
+
+    })
 });
 
 function populateUpgradesForAventador(){
