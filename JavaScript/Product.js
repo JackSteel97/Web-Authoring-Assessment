@@ -44,14 +44,18 @@ Product.prototype = {
 		this.price = aPrice;
 	}
 	, calculateNewPrice: function () {
+		var newPrice = this.basePrice;
 		for (var i = 0; i < this.upgrades.length; i++) {
+
 			console.log(this.upgrades[i].getPrice());
-			this.price += this.upgrades[i].getPrice();
+			newPrice += this.upgrades[i].getPrice();
+
 		}
+		this.price = newPrice;
 	}
 	, addUpgrade: function (upgradeName, upgradePrice, upgradeValue) {
 		for (var i = 0; i < this.upgrades.length; i++) {
-			if (this.upgrades[i].getName.toString().toLowerCase() == upgradeName.toLowerCase()) {
+			if (this.upgrades[i].getName().toString().toLowerCase() == upgradeName.toString().toLowerCase()) {
 				this.upgrades[i].setPrice(upgradePrice);
 				this.upgrades[i].setValue(upgradeValue);
 				return;

@@ -2,108 +2,105 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>BROIBAC - Product</title>
-    <link rel="icon" type="image/png" href="images/logo/icon.png" />
-    <link rel="stylesheet" type="text/css" href="CSS/navBar.css" />
-    <link rel="stylesheet" type="text/css" href="CSS/footer.css" />
-    <link rel="stylesheet" type="text/css" href="CSS/productDetails.css" />
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
+	<meta charset="utf-8" />
+	<title>BROIBAC - Product</title>
+	<link rel="icon" type="image/png" href="images/logo/icon.png" />
+	<link rel="stylesheet" type="text/css" href="CSS/navBar.css" />
+	<link rel="stylesheet" type="text/css" href="CSS/footer.css" />
+	<link rel="stylesheet" type="text/css" href="CSS/productDetails.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="JavaScript/Three.js/three.min.js"></script>
 	<script src="JavaScript/Three.js/OBJLoader.js"></script>
 	<script src="JavaScript/Three.js/MTLLoader.js"></script>
-	<script src = "JavaScript/Three.js/OrbitControls.js"></script>
-
+	<script src="JavaScript/Three.js/OrbitControls.js"></script>
 	<script src="JavaScript/Upgrade.js"></script>
 	<script src="JavaScript/Product.js"></script>
 	<script src="JavaScript/Vehicle3D.js"></script>
-
-    <script src="JavaScript/ProductDetailsPage.js"></script>
-    </head>
+	<script src="JavaScript/ProductDetailsPage.js"></script>
+</head>
 
 <body>
-    <header>
-        <nav>
-            <ul id="navBar">
-                <li class="navBtn" id="homeBtn"><a href="index.html">Home</a></li> |
-                <li class="navBtn" id="productBtn">
-                    <div class="dropdown"> Products
-                        <div class="dropdown-content"> <a href="land.html">Land</a> <a href="air.html">Air</a> <a href="sea.html">Sea</a> </div>
-                    </div>
-                </li>
-                <li class="navBtn" id="navLogo">
-                    <a href="index.html"> <img id="logo" src="images/logo/small.png" alt="BROIBAC Logo" width="10%" /> </a>
-                </li>
-                <li class="navBtn" id="eventsBtn"><a href="events.html">Events</a></li> |
-                <li class="navBtn" id="contactBtn"><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section>
-        <div id="display">
-            <div id="loadingDisplay"><span>Loading...</span></div>
-            <div id="Container3D"></div>
-        </div>
+	<header>
+		<nav>
+			<ul id="navBar">
+				<li class="navBtn" id="homeBtn"><a href="index.html">Home</a></li> |
+				<li class="navBtn" id="productBtn">
+					<div class="dropdown"> Products
+						<div class="dropdown-content"> <a href="land.html">Land</a> <a href="air.html">Air</a> <a href="sea.html">Sea</a> </div>
+					</div>
+				</li>
+				<li class="navBtn" id="navLogo">
+					<a href="index.html"> <img id="logo" src="images/logo/small.png" alt="BROIBAC Logo" width="10%" /> </a>
+				</li>
+				<li class="navBtn" id="eventsBtn"><a href="events.html">Events</a></li> |
+				<li class="navBtn" id="contactBtn"><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<div id="display">
+			<div id="loadingDisplay"><span>Loading...</span></div>
+			<div id="Container3D"></div>
+		</div>
+		<p id="controls">Left Click - Paint&emsp;&emsp;Right Mouse - Pan Camera&emsp;&emsp;Scroll Wheel - Zoom</p>
+		<section id="details">
+			<article id="productInfo">
+				<div class="title">
+					<h1 id="prodName">Product Name</h1> </div>
+				<h3 id="prodBasePrice">£50,000</h3>
+				<p id="prodDescription">This is a description of this product</p>
+			</article>
+			<article id="totaller">
+				<div class="title">
+					<h1>Total</h1></div> <a class="cartBtn">Add To Cart</a>
+				<h2 id="totalPrice">£55,000</h2>
+				<hr/>
+				<ul id="partsList">
 
-        <p id="controls">Left Click - Paint&emsp;&emsp;Right Mouse - Pan Camera&emsp;&emsp;Scroll Wheel - Zoom</p>
-        <section id="details">
-
-            <article id="productInfo">
-                <div class="title">
-                    <h1 id="prodName">Product Name</h1> </div>
-                <h3 id="prodBasePrice">£50,000</h3>
-                <p id="prodDescription">This is a description of this product</p>
-            </article>
-
-            <article id="totaller">
-                <div class="title">
-                    <h1>Total</h1></div>
-                <a class="cartBtn">Add To Cart</a>
-                <h2 id="totalPrice">£55,000</h2>
-
-                <hr/>
-                <ul id="partsList">
-                    <li><span class="leftPart"></span><span class="rightPart"></span></li>
-                </ul>
-
-            </article>
-
-            <article id="config">
-                <div class="title">
-                    <h1>Customise</h1> </div>
-                <ul id="configurator">
-                    <li>
-                        <label for="colourPicker">Paint Colour: </label>
-                        <input id="colourPicker" type="color" value="#ff0000" /> </li>
-                </ul>
-            </article>
-        </section>
-    </section>
-    <footer>
-        <div id="nav">
-            <ul id="navList">
-                <li><a href="index.html">Home</a></li>
-                <li>
-                    <hr/>
-                </li>
-                <li><a href="land.html">Land</a></li>
-                <li><a href="air.html">Air</a></li>
-                <li><a href="sea.html">Sea</a></li>
-                <li>
-                    <hr/>
-                </li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-        <div id="address">
-            <ul>
-                <li>Brayford Pool, Lincoln, LN6 7TS</li>
-            </ul>
-        </div>
-    </footer>
+				</ul>
+			</article>
+			<article id="config">
+				<div class="title">
+					<h1>Customise</h1> </div>
+				<ul id="configurator">
+					<li>
+						<label for="colourPicker">Paint Colour: </label>
+						<input id="colourPicker" type="color" value="#ff0000" /> </li>
+					<!-- aventador -->
+					<li>
+						<label for="armourUpgrade"><b>Armour</b></label>
+						<div id="armourUpgrade">
+							<input type="radio" name="armour" value="None" data-price="0" checked /> None&emsp;
+							<input type="radio" name="armour" value="Light" data-price="15000" /> Light&emsp;
+							<input type="radio" name="armour" value="Medium" data-price="25000" /> Medium&emsp;
+							<input type="radio" name="armour" value="Heavy" data-price="50000" /> Heavy&emsp;
+						</div>
+					</li>
+				</ul>
+			</article>
+		</section>
+	</section>
+	<footer>
+		<div id="nav">
+			<ul id="navList">
+				<li><a href="index.html">Home</a></li>
+				<li>
+					<hr/> </li>
+				<li><a href="land.html">Land</a></li>
+				<li><a href="air.html">Air</a></li>
+				<li><a href="sea.html">Sea</a></li>
+				<li>
+					<hr/> </li>
+				<li><a href="events.html">Events</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</div>
+		<div id="address">
+			<ul>
+				<li>Brayford Pool, Lincoln, LN6 7TS</li>
+			</ul>
+		</div>
+	</footer>
 </body>
 
 </html>

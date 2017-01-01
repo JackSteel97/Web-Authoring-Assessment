@@ -1,26 +1,23 @@
-function Upgrade(aName, aPrice, aValue){
+function Upgrade(aName, aPrice, aValue) {
 	this.name = aName;
 	this.price = aPrice;
 	this.value = aValue;
-	}
-
+}
 Upgrade.prototype = {
-
-	constructor: Upgrade,
-
-	getName:function(){
+	constructor: Upgrade
+	, getName: function () {
 		return this.name;
-	},
-	getPrice:function(){
+	}
+	, getPrice: function () {
 		return this.price;
-	},
-	getValue:function(){
+	}
+	, getValue: function () {
 		return this.value;
-	},
-	setPrice:function(aPrice){
+	}
+	, setPrice: function (aPrice) {
 		this.price = aPrice;
-	},
-	setValue:function(aValue){
+	}
+	, setValue: function (aValue) {
 		this.value = aValue;
 	}
 }
