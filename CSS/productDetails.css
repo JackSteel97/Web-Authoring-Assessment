@@ -108,3 +108,28 @@
 #configurator li{
     margin:10px;
 }
+#display{
+    position: relative;
+}
+#loadingDisplay {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    display: table;
+    height: 500px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: 0;
+    -webkit-transition: opacity 500ms;
+    -moz-transition: opacity 500ms;
+    -o-transition: opacity 500ms;
+    transition: opacity 500ms;
+}
+
+
+#loadingDisplay span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}

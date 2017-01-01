@@ -5,6 +5,7 @@ $(document).ready(function($){
         window.location.href = "index.html";
         return;
     }
+    $("#loadingDisplay").css({ opacity: 1 });
     //get JSON object from storage and map it's attributes to a new product object so it can be used as needed.
     var product = $.extend(new Product(),JSON.parse(localStorage.getItem("currentProduct")));
     console.log(product);
