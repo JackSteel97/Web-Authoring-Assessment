@@ -1,0 +1,110 @@
+#cartItems{
+	width:100%;
+}
+
+#cart{
+	list-style: none;
+}
+
+.cartItem{
+	 box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+	margin-bottom: 25px;
+}
+
+.thumbnail{
+	margin: 10px;
+	margin-left:50px;
+	vertical-align: top;
+	display: inline-block;
+}
+.detailSection{
+	display: flex;
+}
+.titleBar{
+	width: 100%;
+}
+
+.imageDiv{
+	flex: 0 0 40%
+}
+
+.upgrades{
+	flex: 0 0 50%;
+}
+
+.btnDiv{
+	flex: 0 0 10%
+}
+
+.itemName{
+	display: inline-block;
+	text-decoration: underline;
+	margin-left:10%;
+}
+
+.itemPrice{
+	font-weight: normal;
+	display: inline-block;
+	float:right;
+	margin-right: 40%;
+}
+
+.upgradeList{
+
+	list-style: none;
+	margin-top: 15px;
+	width:60%;
+}
+
+.upgradeList li{
+	margin-bottom:15px;
+	display:flex;
+}
+
+.removeBtn{
+	display:inline-block;
+	float:right;
+	margin: 10px;
+    border-radius: 2px;
+    padding:5px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #fff;
+    display: inline-block;
+    background-color: #cc0000;
+    box-shadow: 0px 2px 0px 0px #660000;
+
+}
+
+.removeBtn:active {
+    transform: translate(0px, 2px);
+    -webkit-transform: translate(0px, 2px);
+    box-shadow: 0px 1px 0px 0px;
+}
+
+.removeBtn:hover {
+    background-color: #ff3333;
+}
+
+
+
+.leftPart{
+	float:left;
+	flex:1;
+	margin-left:10%;
+	display: inline-block;
+    text-align: left;
+}
+
+.rightPart{
+	float:right;
+	margin-right: 45%;
+	display: inline-block;
+    text-align: right;
+	flex:1
+}
+
+.centerPart{
+	text-align: center;
+	flex:1;
+}
