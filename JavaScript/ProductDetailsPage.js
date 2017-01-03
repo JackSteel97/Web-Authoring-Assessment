@@ -60,11 +60,42 @@ $(document).ready(function ($) {
 	$("#colourPicker").change(function (event) {
 		console.log(this.value);
 		vehicle3DHandler.setPaintColour(this.value);
-	})
+	});
+
+	$(".cartBtn").click(function(event){
+		product.thumbnailPath = $("#Container3D canvas")[0].toDataURL();
+		addProductToCart();
+	});
 });
 
+function addProductToCart(){
+	if (localStorage.getItem("cart") == null) {
+		var cartList = [];
+		cartList.push(product);
+		console.log(cartList);
+		localStorage.setItem("cart",JSON.stringify(cartList));
+
+	}else{
+		var cartList = JSON.parse(localStorage.getItem("cart"));
+		for(var i = 0; i<cartList.length; i++){
+			cartList[i] = $.extend(new Product(),cartList[i]);
+		}
+		cartList.push(product);
+		console.log(cartList);
+		localStorage.setItem("cart",JSON.stringify(cartList));
+	}
+
+	localStorage.setItem("currentProduct",null);
+	moveToShoppingCart();
+
+}
+
+function moveToShoppingCart(){
+	window.location.href = "shoppingcart.html";
+}
+
 function populateUpgradesForAventador() {
-	var specificHtml = '<li> <label for="armourUpgrade"><b>Armour</b></label> <div id="armourUpgrade" class="upgradeSection"> <input type="radio" name="armour" value="None" data-price="0" checked /> None&emsp; <input type="radio" name="armour" value="Light" data-price="15000" /> Light&emsp; <input type="radio" name="armour" value="Medium" data-price="25000" /> Medium&emsp; <input type="radio" name="armour" value="Heavy" data-price="50000" /> Heavy&emsp; </div> </li> <li> <label for="brakeUpgrade"><b>Brakes</b></label> <div id="brakeUpgrade" > <input type="radio" name="brakes" value="Stock" data-price="0" checked /> Stock&emsp; <input type="radio" name="brakes" value="Street" data-price="5000" /> Street&emsp; <input type="radio" name="brakes" value="Sport" data-price="7500" /> Sport&emsp; <input type="radio" name="brakes" value="Race" data-price="10000" /> Race&emsp; </div> </li> <li> <label for="engineUpgrade"><b>Brakes</b></label> <div id="engineUpgrade" > <input type="radio" name="engine" value="V6" data-price="0" checked /> V6&emsp; <input type="radio" name="engine" value="V8" data-price="14999.99" /> V8&emsp; <input type="radio" name="engine" value="V10" data-price="39999.99" /> V10&emsp; <input type="radio" name="engine" value="V12" data-price="79999.99" /> V12&emsp; </div> </li> <li> <label for="turboUpgrade"><b>Turbo</b></label> <div id="turboUpgrade"> <input type="checkbox" name="turbo" value="Turbo Charged" data-price="100000" /> Turbo Charged&emsp; </div> </li>'
+	var specificHtml = '<li> <label for="armourUpgrade"><b>Armour</b></label> <div id="armourUpgrade" class="upgradeSection"> <input type="radio" name="armour" value="None" data-price="0" checked /> None&emsp; <input type="radio" name="armour" value="Light" data-price="15000" /> Light&emsp; <input type="radio" name="armour" value="Medium" data-price="25000" /> Medium&emsp; <input type="radio" name="armour" value="Heavy" data-price="50000" /> Heavy&emsp; </div> </li> <li> <label for="brakeUpgrade"><b>Brakes</b></label> <div id="brakeUpgrade" > <input type="radio" name="brakes" value="Stock" data-price="0" checked /> Stock&emsp; <input type="radio" name="brakes" value="Street" data-price="5000" /> Street&emsp; <input type="radio" name="brakes" value="Sport" data-price="7500" /> Sport&emsp; <input type="radio" name="brakes" value="Race" data-price="10000" /> Race&emsp; </div> </li> <li> <label for="engineUpgrade"><b>Engine</b></label> <div id="engineUpgrade" > <input type="radio" name="engine" value="V6" data-price="0" checked /> V6&emsp; <input type="radio" name="engine" value="V8" data-price="14999.99" /> V8&emsp; <input type="radio" name="engine" value="V10" data-price="39999.99" /> V10&emsp; <input type="radio" name="engine" value="V12" data-price="79999.99" /> V12&emsp; </div> </li> <li> <label for="turboUpgrade"><b>Turbo</b></label> <div id="turboUpgrade"> <input type="checkbox" name="turbo" value="Turbo Charged" data-price="100000" /> Turbo Charged&emsp; </div> </li>'
 
 	//add the html for aventador
 	$("#configurator li").append(specificHtml);
