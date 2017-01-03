@@ -112,8 +112,8 @@
     position: relative;
 }
 #loadingDisplay {
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
+    font-size:32px;
+    color: black;
     display: table;
     height: 500px;
     left: 0;
