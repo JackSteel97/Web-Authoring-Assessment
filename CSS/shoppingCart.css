@@ -12,10 +12,11 @@
 }
 
 .thumbnail{
-	margin: 10px;
-	margin-left:50px;
+	margin: 5%;
+	margin-left:10%;
 	vertical-align: top;
 	display: inline-block;
+	width:90%;
 }
 .detailSection{
 	display: flex;
@@ -98,7 +99,7 @@
 
 .rightPart{
 	float:right;
-	margin-right: 45%;
+	margin-right: 10%;
 	display: inline-block;
     text-align: right;
 	flex:1

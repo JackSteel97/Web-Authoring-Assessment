@@ -40,16 +40,17 @@ Product.prototype = {
 	, getBasePrice: function () {
 		return this.basePrice;
 	}
+	, getUpgrades: function () {
+		return this.upgrades;
+	}
 	, setPrice: function (aPrice) {
 		this.price = aPrice;
 	}
 	, calculateNewPrice: function () {
 		var newPrice = this.basePrice;
 		for (var i = 0; i < this.upgrades.length; i++) {
-
 			console.log(this.upgrades[i].getPrice());
 			newPrice += this.upgrades[i].getPrice();
-
 		}
 		this.price = newPrice;
 	}

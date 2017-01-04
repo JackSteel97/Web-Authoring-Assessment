@@ -11,7 +11,8 @@ function Vehicle3D(theContainer, theProduct, theAllowZoom = false, theCameraStar
     this.scene = new THREE.Scene();
     //instantiate a WebGL renderer and enable antialias. webGL can run on GPU for better performance
     this.renderer = new THREE.WebGLRenderer({
-        antialias: true
+        antialias: true,
+		preserveDrawingBuffer: true
     });
     //instantiate the controls for the user moving the camera
     this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
