@@ -7,7 +7,7 @@ $(document).ready(function ($) {
 		return;
 	}
 	$("#loadingDisplay").css({
-		opacity: 1
+		opacity: 0
 	});
 	//get JSON object from storage and map it's attributes to a new product object so it can be used as needed.
 	product = $.extend(new Product(), JSON.parse(localStorage.getItem("currentProduct")));

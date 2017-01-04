@@ -15,7 +15,52 @@ $(document).ready(function ($) {
 		}
 	}
 	populateCart();
+	//remove button click
+	$(".removeBtn").click(function(){
+		var i = $(this).data("index")
+		//find this element
+		console.log(i);
+		var found = false;
+		$(".cartItem").each(function(index){
+
+			if($(this).data("index") == i && !found){
+				console.log(index);
+				$(this).remove();
+				cartList.splice(i,1);
+				localStorage.setItem("cart",JSON.stringify(cartList));
+				totalCart();
+				found = true;
+			}else if(found){
+				var newIndex = (parseInt($(this).data("index"))-1).toString();
+				$(this).data("index",newIndex);
+				$(this).attr('data-index',newIndex);
+				$(".removeBtn",this).data("index",newIndex);
+				$(".removeBtn",this).attr('data-index',newIndex);
+			}
+		})
+	});
+	totalCart();
 });
+
+function totalCart(){
+	var total = 0;
+	for(var i = 0; i < cartList.length; i++){
+		total += cartList[i].getPrice();
+	}
+	if(total != 0){
+		if($("#totaller").length){
+			$("#totaller").remove();
+		}
+		var totallerHTML = '<p id="totaller" class="title">Cart Total: £' + total.toLocaleString('en-UK', {
+				minimumFractionDigits: 2
+			}) + '</p>'
+		$("#cartItems").prepend(totallerHTML);
+	}else{
+		if($("#totaller").length){
+			$("#totaller").remove();
+		}
+	}
+}
 
 function populateCart() {
 	var cart = $("#cart");
@@ -25,7 +70,7 @@ function populateCart() {
 			minimumFractionDigits: 2
 		});
 		var thumbnail = cartList[i].getThumbnailPath();
-		var baseItemHTML = '<li class="cartItem" data-index="' + i + '"><div class="titleBar"><h3 class="itemName">' + name + '</h3>						<h3 class="itemPrice">£' + price + '</h3>					</div>					<div class= "detailSection">						<div class="imageDiv">					<img class="thumbnail" src="'+ thumbnail + '" align="center" />							</div>					<div class="upgrades">						<ul class="upgradeList">						</ul>				</div>						<div class="btnDiv">							<a href="#" class="removeBtn">Remove</a>						</div>						</div>				</li>'
+		var baseItemHTML = '<li class="cartItem" data-index="' + i + '"><div class="titleBar"><h3 class="itemName">' + name + '</h3>						<h3 class="itemPrice">£' + price + '</h3>					</div>					<div class= "detailSection">						<div class="imageDiv">					<img class="thumbnail" src="'+ thumbnail + '" align="center" />							</div>					<div class="upgrades">						<ul class="upgradeList">						</ul>				</div>						<div class="btnDiv">							<a href="#" class="removeBtn" data-index="' + i + '">Remove</a>						</div>						</div>				</li>'
 		cart.append(baseItemHTML);
 
 		var upgradeList = $(".upgradeList").eq(i);
