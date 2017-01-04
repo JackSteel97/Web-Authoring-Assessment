@@ -119,8 +119,8 @@ Vehicle3D.prototype = {
         var mouse = new THREE.Vector2();
         console.log("mouse down");
         //get the coords of the mouse click, calculate coords for the click inside the scene and normalise
-        var X = event.clientX - this.container.parentElement.offsetLeft;
-        var Y = event.clientY - this.container.parentElement.offsetTop;
+        var X = event.clientX + $(document).scrollLeft() - this.container.parentElement.offsetLeft;
+        var Y = event.clientY + $(document).scrollTop() - this.container.parentElement.offsetTop;
         mouse.x = (X / this.SCREEN_WIDTH) * 2 - 1;
         mouse.y = -(Y / this.SCREEN_HEIGHT) * 2 + 1;
         //instantiate a Raycaster object
