@@ -98,13 +98,15 @@ function populateUpgradesForAventador() {
 		var cost = $(this).data("price");
 		if (value == "None") {
 			removeFromPartsList("armour");
+			removeUpgradeFromProduct("Armour");
 		}
 		else {
 			addToPartsList("armour", value + " Armour", "£" + cost.toLocaleString('en-UK', {
 				minimumFractionDigits: 2
 			}));
+			applyUpgradeToProduct("Armour", cost, value);
 		}
-		applyUpgradeToProduct("Armour", cost, value);
+
 		updateTotalPrice();
 	});
 	//brakes
@@ -113,13 +115,15 @@ function populateUpgradesForAventador() {
 		var cost = $(this).data("price");
 		if (value == "Stock") {
 			removeFromPartsList("brakes");
+			removeUpgradeFromProduct("Armour");
 		}
 		else {
 			addToPartsList("brakes", value + " Brakes", "£" + cost.toLocaleString('en-UK', {
 				minimumFractionDigits: 2
 			}));
+			applyUpgradeToProduct("Brakes", cost, value);
 		}
-		applyUpgradeToProduct("Brakes", cost, value);
+
 		updateTotalPrice();
 	});
 	//engine
@@ -128,13 +132,15 @@ function populateUpgradesForAventador() {
 		var cost = $(this).data("price");
 		if (value == "V6") {
 			removeFromPartsList("engine");
+			removeUpgradeFromProduct("Engine");
 		}
 		else {
 			addToPartsList("engine", value + " Engine", "£" + cost.toLocaleString('en-UK', {
 				minimumFractionDigits: 2
 			}));
+			applyUpgradeToProduct("Engine", cost, value);
 		}
-		applyUpgradeToProduct("Engine", cost, value);
+
 		updateTotalPrice();
 	});
 	//turbo
@@ -155,7 +161,30 @@ function populateUpgradesForAventador() {
 	});
 }
 
-function populateUpgradesForBlackhawk() {}
+function populateUpgradesForBlackhawk() {
+	var specificHTML = '<li> <label for="miniguns"><b>Miniguns</b></label> <div id="miniguns"> <input type="radio" name="miniguns" value="None" data-price="0" checked>None&emsp;<br /> <input type="radio" name="miniguns" value="1x M134 7.62mm 6-barreled minigun" data-price="50000" >1x M134 7.62mm 6-barreled minigun&emsp; <br /><input type="radio" name="miniguns" value="2x M134 7.62mm 6-barreled minigun" data-price="95000" >2x M134 7.62mm 6-barreled minigun&emsp; </div> </li>';
+
+	$("#configurator").append(specificHTML);
+
+	//miniguns
+	$('#miniguns input:radio').on('change', function () {
+		var value = $(this).val();
+		var cost = $(this).data("price");
+		if (value == "None") {
+			removeFromPartsList("miniguns");
+			removeUpgradeFromProduct("Miniguns");
+		}
+		else {
+			addToPartsList("miniguns", value, "£" + cost.toLocaleString('en-UK', {
+				minimumFractionDigits: 2
+			}));
+			applyUpgradeToProduct("Miniguns", cost, value);
+		}
+
+		updateTotalPrice();
+	});
+
+}
 
 function populateUpgradesForBoeing787() {}
 
@@ -170,13 +199,15 @@ function populateUpgradesForAbrams() {
 		$("#enginePower #val").text(value + " hp");
 		if (value == 1500) {
 			removeFromPartsList("enginePower");
+			removeUpgradeFromProduct("Engine Power");
 		}
 		else {
 			addToPartsList("enginePower", value + " hp", "£" + (cost).toLocaleString('en-UK', {
 				minimumFractionDigits: 2
 			}));
+			applyUpgradeToProduct("Engine Power", cost, value + "hp");
 		}
-		applyUpgradeToProduct("Engine Power", cost, value + "hp");
+
 		updateTotalPrice();
 	});
 	//reactiveArmour
