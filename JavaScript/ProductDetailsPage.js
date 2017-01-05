@@ -45,7 +45,6 @@ $(document).ready(function ($) {
 	case "Row Boat":
 		startDistance = 26;
 		startHeight = 13;
-		populateUpgradesForRowBoat();
 		break;
 	case "Yacht":
 		startDistance = 1060;
@@ -272,9 +271,29 @@ function populateUpgradesForAbrams() {
 	});
 }
 
-function populateUpgradesForRowBoat() {}
 
-function populateUpgradesForYacht() {}
+function populateUpgradesForYacht() {
+	var specificHTML = '';
+
+	$("#configurator").append(specificHTML);
+
+	//name
+	$('#boatName input:text').on('input', function () {
+		var value = $(this).val();
+		var cost = $(this).data("price") + ((value.length)*50)
+		if (value.length == 0) {
+			removeFromPartsList("name");
+			removeUpgradeFromProduct("Engraved Name")
+		}
+		else {
+			addToPartsList("name", 'Name: "' + value +'"', "£" + cost.toLocaleString('en-UK', {
+				minimumFractionDigits: 2
+			}));
+			applyUpgradeToProduct("Engraved Name", cost, value);
+		}
+		updateTotalPrice();
+	});
+}
 
 function addToPartsList(id, leftPartText, rightPartText) {
 	var selector = "#partsList #" + id;
