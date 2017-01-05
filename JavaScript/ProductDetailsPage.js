@@ -61,7 +61,7 @@ $(document).ready(function ($) {
 		product.thumbnailPath = $("#Container3D canvas")[0].toDataURL();
 		addProductToCart();
 	});
-	$("#loadingDisplay").hide();
+
 });
 
 function addProductToCart() {
