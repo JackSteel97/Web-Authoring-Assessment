@@ -24,11 +24,10 @@ nav {
 
 #navBar {
     text-align: center;
-    font-family: sans-serif;
     font-size: 28px;
 }
 
-#navBar li {
+.navBtn {
     display: inline;
     padding-left: 5%;
     padding-right: 5%;
@@ -85,4 +84,10 @@ li a:visited {
 .title {
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
     text-align: center;
+}
+
+#cartBtn{
+	float:right;
+	width: 3%;
+	vertical-align: middle;
 }

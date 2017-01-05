@@ -6,9 +6,7 @@ $(document).ready(function ($) {
 		window.location.href = "index.html";
 		return;
 	}
-	$("#loadingDisplay").css({
-		opacity: 0
-	});
+
 	//get JSON object from storage and map it's attributes to a new product object so it can be used as needed.
 	product = $.extend(new Product(), JSON.parse(localStorage.getItem("currentProduct")));
 	console.log(product);
@@ -58,7 +56,6 @@ $(document).ready(function ($) {
 	}
 	var vehicle3DHandler = new Vehicle3D(document.getElementById("Container3D"), product, true, startDistance, startHeight, rotationNeeded);
 	$("#colourPicker").change(function (event) {
-		console.log(this.value);
 		vehicle3DHandler.setPaintColour(this.value);
 	});
 
@@ -66,6 +63,7 @@ $(document).ready(function ($) {
 		product.thumbnailPath = $("#Container3D canvas")[0].toDataURL();
 		addProductToCart();
 	});
+	$("#loadingDisplay").hide();
 });
 
 function addProductToCart(){
