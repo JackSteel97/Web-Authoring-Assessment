@@ -22,19 +22,19 @@ $(document).ready(function ($) {
 	}));
 	switch (product.getName()) {
 	case "Lamborghini Aventador":
-		startDistance = 10;
-		startHeight = 5;
+		startDistance = 3.6;
+		startHeight = 2;
 		populateUpgradesForAventador();
 		break;
 	case "UH-60 Blackhawk":
-		startDistance = 25;
-		startHeight = 5;
+		startDistance = 15;
+		startHeight = 3;
 		rotationNeeded = -Math.PI / 2;
 		populateUpgradesForBlackhawk();
 		break;
 	case "Boeing 787-8":
-		startDistance = 5;
-		startHeight = 5;
+		startDistance = 3.5;
+		startHeight = 1;
 		populateUpgradesForBoeing787();
 		break;
 	case "M1A2 Abrams Tank":
@@ -43,13 +43,13 @@ $(document).ready(function ($) {
 		populateUpgradesForAbrams();
 		break;
 	case "Row Boat":
-		startDistance = 30;
-		startHeight = 15;
+		startDistance = 26;
+		startHeight = 13;
 		populateUpgradesForRowBoat();
 		break;
 	case "Yacht":
-		startDistance = 500;
-		startHeight = 400;
+		startDistance = 1060;
+		startHeight = 325;
 		populateUpgradesForYacht();
 		break;
 	}
@@ -61,7 +61,6 @@ $(document).ready(function ($) {
 		product.thumbnailPath = $("#Container3D canvas")[0].toDataURL();
 		addProductToCart();
 	});
-
 });
 
 function addProductToCart() {
@@ -106,7 +105,6 @@ function populateUpgradesForAventador() {
 			}));
 			applyUpgradeToProduct("Armour", cost, value);
 		}
-
 		updateTotalPrice();
 	});
 	//brakes
@@ -123,7 +121,6 @@ function populateUpgradesForAventador() {
 			}));
 			applyUpgradeToProduct("Brakes", cost, value);
 		}
-
 		updateTotalPrice();
 	});
 	//engine
@@ -140,7 +137,6 @@ function populateUpgradesForAventador() {
 			}));
 			applyUpgradeToProduct("Engine", cost, value);
 		}
-
 		updateTotalPrice();
 	});
 	//turbo
@@ -162,10 +158,8 @@ function populateUpgradesForAventador() {
 }
 
 function populateUpgradesForBlackhawk() {
-	var specificHTML = '<li> <label for="miniguns"><b>Miniguns</b></label> <div id="miniguns"> <input type="radio" name="miniguns" value="None" data-price="0" checked>None&emsp;<br /> <input type="radio" name="miniguns" value="1x M134 7.62mm 6-barreled minigun" data-price="50000" >1x M134 7.62mm 6-barreled minigun&emsp; <br /><input type="radio" name="miniguns" value="2x M134 7.62mm 6-barreled minigun" data-price="95000" >2x M134 7.62mm 6-barreled minigun&emsp; </div> </li>';
-
+	var specificHTML = '<li> <label for="miniguns"><b>Miniguns: </b></label> <div id="miniguns"> <input type="radio" name="miniguns" value="None" data-price="0" checked>None&emsp;<br /> <input type="radio" name="miniguns" value="1x M134 7.62mm 6-barreled minigun" data-price="50000" >1x M134 7.62mm 6-barreled minigun&emsp; <br /><input type="radio" name="miniguns" value="2x M134 7.62mm 6-barreled minigun" data-price="95000" >2x M134 7.62mm 6-barreled minigun&emsp; </div> </li>';
 	$("#configurator").append(specificHTML);
-
 	//miniguns
 	$('#miniguns input:radio').on('change', function () {
 		var value = $(this).val();
@@ -180,17 +174,36 @@ function populateUpgradesForBlackhawk() {
 			}));
 			applyUpgradeToProduct("Miniguns", cost, value);
 		}
-
 		updateTotalPrice();
 	});
-
 }
 
-function populateUpgradesForBoeing787() {}
+function populateUpgradesForBoeing787() {
+	var specificHTML = '<li> <label for="interiorUpgrade"><b>Interior:</b></label> <div id="interiorUpgrade"> <input type = "radio" name="interior" value = "Standard" data-price="0"/> Standard<br/> <input type = "radio" name="interior" value = "Private Jet Retrofit" data-price="15000000"/> Private Jet Retrofit </div> </li>';
+
+	$("#configurator").append(specificHTML);
+
+	//interior
+	$('#interiorUpgrade input:radio').on('change', function () {
+		var value = $(this).val();
+		var cost = $(this).data("price");
+		if (value == "Standard") {
+			removeFromPartsList("interior");
+			removeUpgradeFromProduct("Interior");
+		}
+		else {
+			addToPartsList("interior", value + " Interior", "£" + cost.toLocaleString('en-UK', {
+				minimumFractionDigits: 2
+			}));
+			applyUpgradeToProduct("Interior", cost, value);
+		}
+		updateTotalPrice();
+	});
+}
 
 function populateUpgradesForAbrams() {
 	var specificHTML = '<li> <label for="enginePower"><b>Engine Power:</b></label> <div id="enginePower"> <input type="range" min="1500" max="2500" value="1500" data-price="5000"/> <span id="val">1500 hp</span> </div> </li> <li> <label for="reactiveArmour"><b>Turbo</b></label> <div id="reactiveArmour"> <input type="checkbox" name="reactiveArmour" value="Reactive Armour Plates" data-price="3000000" /> Reactive Armour Plates&emsp; </div> </li> <li> <label for="missileCountermeasures"><b>Turbo</b></label> <div id="missileCountermeasures"> <input type="checkbox" name="missileCountermeasures" value="Missile Countermeasures" data-price="1500000" /> Missile Countermeasures&emsp; </div> </li> <li> <label for="depletedUrainiumArmour"><b>Turbo</b></label> <div id="depletedUrainiumArmour"> <input type="checkbox" name="depletedUrainiumArmour" value="Depleted Urainium Armour" data-price="750000" /> Depleted Urainium Armour&emsp; </div> </li> ';
-		//add the html for abrams tank
+	//add the html for abrams tank
 	$("#configurator").append(specificHTML);
 	//engine
 	$('#enginePower input').on('input', function () {
@@ -207,7 +220,6 @@ function populateUpgradesForAbrams() {
 			}));
 			applyUpgradeToProduct("Engine Power", cost, value + "hp");
 		}
-
 		updateTotalPrice();
 	});
 	//reactiveArmour

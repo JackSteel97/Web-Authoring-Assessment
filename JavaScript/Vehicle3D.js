@@ -151,6 +151,7 @@ Vehicle3D.prototype = {
 		this.controls.update();
 		//render the scene
 		this.renderer.render(this.scene, this.camera);
+		console.log(this.camera.position);
 	}, //declare setPainting method
 	setPainting: function (painting) {
 		//set painting
