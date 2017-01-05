@@ -37,24 +37,31 @@
     border-right-width: thin;
 }
 
-#partsList {
-    list-style: none;
+#partsList{
+	list-style: none;
+
 }
 
-.leftPart {
-    float: left;
-    display: inline-block;
+#partsList li{
+	margin-bottom:15px;
+	display:flex;
+}
+
+.leftPart{
+	float:left;
+	flex:1;
+	margin-left:10%;
+	display: inline-block;
     text-align: left;
-    margin-left: 5%;
 }
 
-.rightPart {
-    float: right;
-    display: inline-block;
+.rightPart{
+	float:right;
+	margin-right: 10%;
+	display: inline-block;
     text-align: right;
-    margin-right: 5%;
+	flex:1
 }
-
 #details {
     display: flex;
 }
