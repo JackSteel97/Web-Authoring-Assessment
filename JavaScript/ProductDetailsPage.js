@@ -150,7 +150,7 @@ function populateUpgradesForAventador() {
 		var cost = $(this).data("price");
 		if (!$(this).prop('checked')) {
 			removeFromPartsList("turbo");
-			applyUpgradeToProduct("Turbo", 0, "No");
+			removeUpgradeFromProduct("Turbo");
 		}
 		else {
 			addToPartsList("turbo", value, "£" + cost.toLocaleString('en-UK', {
@@ -166,7 +166,42 @@ function populateUpgradesForBlackhawk() {}
 
 function populateUpgradesForBoeing787() {}
 
-function populateUpgradesForAbrams() {}
+function populateUpgradesForAbrams() {
+
+	//engine
+	$('#enginePower input').on('input', function () {
+		var value = $(this).val();
+		var cost = $(this).data("price") * (value - 1500);
+		$("#enginePower #val").text(value + " hp");
+		if (value == 1500) {
+			removeFromPartsList("enginePower");
+		}
+		else {
+			addToPartsList("enginePower", value + " hp", "£" + (cost).toLocaleString('en-UK', {
+				minimumFractionDigits: 2
+			}));
+		}
+		applyUpgradeToProduct("Engine Power", cost, value + "hp");
+		updateTotalPrice();
+	});
+
+	//reactiveArmour
+	$('#turboUpgrade input:checkbox').on('change', function () {
+		var value = $(this).val();
+		var cost = $(this).data("price");
+		if (!$(this).prop('checked')) {
+			removeFromPartsList("reactiveArmour");
+			applyUpgradeToProduct("Reactive Armour", 0, "No");
+		}
+		else {
+			addToPartsList("turbo", value, "£" + cost.toLocaleString('en-UK', {
+				minimumFractionDigits: 2
+			}));
+			applyUpgradeToProduct("Turbo", cost, "Yes");
+		}
+		updateTotalPrice();
+	});
+}
 
 function populateUpgradesForRowBoat() {}
 
@@ -194,6 +229,11 @@ function removeFromPartsList(id) {
 
 function applyUpgradeToProduct(name, price, value) {
 	product.addUpgrade(name, price, value);
+	product.calculateNewPrice();
+}
+
+function removeUpgradeFromProduct(name){
+	product.removeUpgrade(name);
 	product.calculateNewPrice();
 }
 

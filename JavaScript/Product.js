@@ -63,5 +63,12 @@ Product.prototype = {
 			}
 		}
 		this.upgrades.push(new Upgrade(upgradeName, upgradePrice, upgradeValue));
+	}, removeUpgrade: function(upgradeName){
+		for(var i = 0; i<this.upgrades.length; i++){
+			if(this.upgrades[i].getName().toString().toLowerCase() == upgradeName.toString().toLowerCase()){
+				this.upgrades.splice(i,1);
+				return;
+			}
+		}
 	}
 }
