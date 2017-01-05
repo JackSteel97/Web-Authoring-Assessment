@@ -76,7 +76,7 @@ Vehicle3D.prototype = {
 		//declare callback function for printing out download progress
 		var onProgress = function (xhr) {
 				console.log("Loading... " + xhr.loaded);
-				$("#loadingDisplay span").text("Loading... " + xhr.loaded/1024 + " kb")
+				$("#loadingDisplay span").text("Loading... " + Math.round(xhr.loaded/1024) + " kb")
 			}
 			//declare callback function for when an error occurs
 		var onError = function (xhr) {
