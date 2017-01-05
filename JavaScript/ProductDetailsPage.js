@@ -273,7 +273,7 @@ function populateUpgradesForAbrams() {
 
 
 function populateUpgradesForYacht() {
-	var specificHTML = '';
+	var specificHTML = '<li> <label for="boatName"><b>Engraved Name: </b></label> <div id="boatName"> <input type="text" value="" data-price="4950"/> </div> </li>';
 
 	$("#configurator").append(specificHTML);
 
