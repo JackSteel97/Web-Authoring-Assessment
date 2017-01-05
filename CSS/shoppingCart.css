@@ -53,7 +53,7 @@
 .upgradeList{
 	list-style: none;
 	margin-top: 15px;
-	width:60%;
+	width:100%;
 }
 
 .upgradeList li{
@@ -91,14 +91,14 @@
 .leftPart{
 	float:left;
 	flex:1;
-	margin-left:10%;
+	margin-left:5%;
 	display: inline-block;
     text-align: left;
 }
 
 .rightPart{
 	float:right;
-	margin-right: 10%;
+	margin-right: 5%;
 	display: inline-block;
     text-align: right;
 	flex:1
