@@ -9,6 +9,17 @@
 	<link rel="stylesheet" type="text/css" href="CSS/homepage.css" />
 	<link rel="stylesheet" type="text/css" href="CSS/footer.css" />
 	<script type="text/javascript" src="JavaScript/tweetWidget.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="JavaScript/Three.js/three.min.js"></script>
+	<script src="JavaScript/Three.js/OBJLoader.js"></script>
+	<script src="JavaScript/Three.js/MTLLoader.js"></script>
+	<script src="JavaScript/Three.js/OrbitControls.js"></script>
+	<script src="JavaScript/Upgrade.js"></script>
+	<script src="JavaScript/Product.js"></script>
+	<script src="JavaScript/Vehicle3D.js"></script>
+	<script src="JavaScript/homepageSlideshow.js"></script>
+
 </head>
 
 <body>
@@ -26,38 +37,36 @@
 				</li>
 				<li class="navBtn" id="eventsBtn"><a href="events.html">Events</a></li> |
 				<li class="navBtn" id="contactBtn"><a href="contact.html">Contact</a></li>
-
 				<li class="navCartBtn">
 					<a href="shoppingcart.html"> <img id="cartBtn" src="images/Cart.png" alt="Shopping Cart" /> </a>
 				</li>
 			</ul>
 		</nav>
 	</header>
-	<aside id="categories">
-		<ul id="categoryList">
-			<li>PlaceHolder 1</li>
-			<li>PlaceHolder 2</li>
-			<li>PlaceHolder 3</li>
-			<li>PlaceHolder 4</li>
-			<li>PlaceHolder 5</li>
-			<li>PlaceHolder 6</li>
-		</ul>
-	</aside>
-	<section id="featuredSlideShow">
-		<div id="slideShow"> <img id="slideShowMain" /> <img id="slideshowLeft" /> <img id="slideshowRight" /> </div>
-		<div id="showreel"> </div>
-	</section>
-	<aside id="twitterFeed">
-		<a class="twitter-timeline" href="https://twitter.com/unilincoln" data-width="300" data-height="500"> </a>
-	</aside>
+	<section id="mainContent">
+		<aside id="categories">
+			<ul id="categoryList">
+				<li><a href="land.html">Land Vehicles</a></li>
+				<li><a href="air.html">Air Vehicles</a></li>
+				<li><a href="sea.html">Sea Vehicles</a></li>
+			</ul>
+		</aside>
+		<section id="featuredSlideShow">
+			<div class="title">Featured Products</div>
+			<div id="slideshowContainer"></div>
+		</section>
+		<aside id="twitterFeed">
+			<a class="twitter-timeline" href="https://twitter.com/unilincoln" data-width="300" data-height="500"> </a>
+		</aside>
+		</section>
 	<section id="intro">
 		<div class="title">
 			<h1>About Us</h1> </div>
 		<article>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent malesuada quis magna ac tempor. Donec interdum rhoncus odio, quis feugiat nunc pretium pretium. Vivamus non laoreet sapien, vel scelerisque ligula. Proin facilisis vulputate erat, a tincidunt elit sagittis vel. Sed ac lectus tortor. Nullam commodo non mauris et finibus. Donec accumsan neque sed quam euismod, non semper arcu finibus. Phasellus velit arcu, viverra eget leo quis, pharetra sollicitudin tortor. Morbi pharetra, mi vitae vulputate consequat, odio odio congue velit, at convallis lorem orci ut sem. Aliquam porttitor faucibus diam ac commodo. Nulla in nisl at ipsum accumsan sollicitudin. Duis et ante lectus. Nunc dignissim erat vitae sem finibus, ut consequat lorem pharetra. Mauris elementum elit vitae libero vestibulum, ornare tincidunt arcu volutpat.</p>
-			<p>Sed ultricies enim id dui dictum mattis. Integer sed hendrerit tortor. In ut lobortis urna, vel tempor erat. Nulla laoreet eu quam eget vehicula. Nulla vestibulum lorem eu elementum aliquam. Etiam dictum arcu et lorem luctus, quis sagittis lorem varius. Nulla id rutrum nibh, sit amet accumsan elit. Nulla facilisi. Proin lacinia lobortis lectus eu iaculis.</p>
-			<p>Morbi hendrerit quam eu placerat tincidunt. Nam elit eros, porta nec vestibulum nec, convallis ut elit. Cras bibendum ultrices nunc interdum condimentum. Nunc sagittis velit a velit elementum pharetra. Nam turpis urna, tincidunt ac libero porttitor, luctus pharetra erat. Donec bibendum mi at venenatis auctor. Integer id erat et erat ultrices condimentum. Duis laoreet, massa et aliquet consequat, neque leo ullamcorper nisi, eget sodales est orci at dolor. Quisque scelerisque mauris odio, ut imperdiet velit aliquet eu.</p>
-			<p>Nunc imperdiet odio at egestas eleifend. Cras nec tellus nec urna mattis fermentum eu nec est. Donec ac interdum est. Quisque sodales tellus at nunc malesuada posuere. Vestibulum euismod odio non imperdiet tempus. Etiam ut nulla arcu. Cras rutrum, justo condimentum porta tempus, risus est tempor justo, eget bibendum velit leo in leo.</p>
+			<p>BROIBAC is a market leading transport solutions company, based in the UK. We specialise in high quality and great prices. We offer a broad range of products for all your transportation needs. Everything, from an evening drive to invading your neighbour's back yard with a Main Battle tank, we've got you covered.</p>
+			<p> Founded in 2007 selling cars and bikes in our local area we quickly expanded with the ambitious goal of becoming a world leading transport company. Now, almost a decade later we have realised that goal and will continue to provide our excellent renowned services for as long as they are needed. </p>
+			<p>We are proud to support local and worldwide charities and good causes, ranging from building schools and infrastructure in developing countries to helping local children follow their dreams.</p>
+			<p>We provide free delivery worldwide as a small thank you for using our services. </p>
 		</article>
 	</section>
 	<footer>
@@ -65,14 +74,12 @@
 			<ul id="navList">
 				<li><a href="index.html">Home</a></li>
 				<li>
-					<hr/>
-				</li>
+					<hr/> </li>
 				<li><a href="land.html">Land</a></li>
 				<li><a href="air.html">Air</a></li>
 				<li><a href="sea.html">Sea</a></li>
 				<li>
-					<hr/>
-				</li>
+					<hr/> </li>
 				<li><a href="events.html">Events</a></li>
 				<li><a href="contact.html">Contact</a></li>
 			</ul>

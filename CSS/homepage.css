@@ -1,32 +1,44 @@
-#twitterFeed{
-    float: right;
-    display: inline-block;
-    box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.2);
+#mainContent{
+	display: flex;
 }
 
-#categories{
-    display: inline-block;
-    float:left;
-    margin-left: 5px;
-    padding: 20px;
-    box-shadow: 1px 1px 20px 0px rgba(0,0,0,0.2);
-    border-radius: 25px
-    
+#twitterFeed {
+	margin:0px;
+	flex: 1 0 20%;
+	box-shadow: -1px 1px 20px 0px rgba(0, 0, 0, 0.2);
 }
 
-#categories li{
-    list-style:none;
-    margin-bottom: 10px;
+#categories {
+	flex: 1 0 10%;
+	float: left;
+	margin-left: 5px;
+	padding: 20px;
+	box-shadow: 1px 1px 20px 0px rgba(0, 0, 0, 0.2);
+	border-radius: 25px
 }
 
-#intro{
-    clear:both;
-    text-align: center;  
-    margin-top: 10px;
+#categories li {
+	list-style: none;
+	margin-bottom: 10px;
 }
 
-#featuredSlideShow{
-    text-align: center;
+#intro {
+	clear: both;
+	text-align: center;
+	margin-top: 10px;
 }
 
+#featuredSlideShow {
+	text-align: center;
+	flex: 2 0 60%;
 
+}
+
+#slideshowContainer{
+	height:500px;
+}
+
+#categoryList li a:hover {
+	color: darkblue;
+	text-decoration: underline;
+}
