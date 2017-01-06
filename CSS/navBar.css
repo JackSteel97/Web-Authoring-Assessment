@@ -17,12 +17,13 @@
 	.hoverMenu {
 		display: block;
 		color: 0d0d0d;
+		height:10vh;
+		font-size: 2em;
 	}
 	nav {
 		position: relative;
 		display: inline-block;
 		width:100%;
-
 	}
 
 	#navBar{
