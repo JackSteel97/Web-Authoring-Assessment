@@ -1,3 +1,11 @@
+/*styles for the page footer*/
+
+/*
+set the background colour and text colour
+make sure it stays on its own line and is full screen width
+add some spacing
+add a shadow at the top
+*/
 footer{
     background-color: #0d0d0d;
     color:whitesmoke;
@@ -9,10 +17,12 @@ footer{
 
 }
 
+/*make sure the links are the right font colour*/
 #navList li a{
     color: whitesmoke;
 }
 
+/*make the list items appear on a single line*/
 #navList li{
     margin:5px;
     display:inline-block;
@@ -22,13 +32,13 @@ footer #nav{
     padding:20px;
     display:inline;
 }
-
+/*remove the bullets from the list and align text*/
 #navList{
     list-style: none;
     display:inline;
     text-align: center;
 }
-
+/*move the address text to the right*/
 #address{
     float:right;
     display:inline;
