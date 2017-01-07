@@ -1,23 +1,29 @@
+/*styles for the contact page*/
+
 #contactDetails{
 	margin-top: 30px;
 }
 
+/*remove bullets from the detail list*/
 #detailsList{
 	list-style: none;
 	text-align: center;
 	margin-top: 25px;
 }
 
+/*make the list items block elements and add a spacing gap*/
 #detailsList li{
-	margin-bottom: 20px
+	margin-bottom: 20px;
+	display:block;
 }
 
+/*make the map widescreen*/
 #mapFrame{
 	width:100%;
+	height:50vh;
 }
-
+/*add spacing for the map*/
 #map{
 	margin-bottom: 30px;
 	margin-top: 30px;
-	
 }
