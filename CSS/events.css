@@ -1,7 +1,10 @@
+/*styles for the events page*/
+
+/*remove the bullets from the list*/
 #eventsList{
 	list-style: none;
 }
-
+/*make the list items block elements and add spacing*/
 #eventsList li{
 	display:block;
 	margin:10px;
@@ -10,7 +13,7 @@
 .eventItem{
 	position: relative;
 }
-
+/*move the image to the left of text and add spacing*/
 .eventItem img{
 	float:left;
 	display: inline-block;
@@ -18,6 +21,7 @@
 	margin-right: 10px;
 }
 
+/*ensure title stays on its own line*/
 .title {
 	clear:both;
 }
