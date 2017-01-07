@@ -1,16 +1,21 @@
+/*styles for the shopping cart page*/
+
+/*make sure the cart takes up the full width*/
 #cartItems{
 	width:100%;
 }
-
+/*remove the list bullets*/
 #cart{
 	list-style: none;
 }
 
+/*add a shadow and spacing around each item*/
 .cartItem{
 	 box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
 	margin-bottom: 25px;
 }
 
+/*add spacing around the image and set its size*/
 .thumbnail{
 	margin: 5%;
 	margin-left:10%;
@@ -18,31 +23,34 @@
 	display: inline-block;
 	width:90%;
 }
+/*set this section as a flex display for easy responsive sizing*/
 .detailSection{
 	display: flex;
 }
+/*make sure the title takes up the full width*/
 .titleBar{
 	width: 100%;
 }
-
+/*allocate 40% width to the image all sections grow equally*/
 .imageDiv{
 	flex: 0 0 40%
 }
-
+/*allocate 50% width to the upgrades list*/
 .upgrades{
 	flex: 0 0 50%;
 }
-
+/*allocate final 10% width to the remove button*/
 .btnDiv{
 	flex: 0 0 10%
 }
 
+/*format text and add spacing to the left*/
 .itemName{
 	display: inline-block;
 	text-decoration: underline;
 	margin-left:10%;
 }
-
+/*format price, mvoe to the right and add spacing to the right*/
 .itemPrice{
 	font-weight: normal;
 	display: inline-block;
@@ -50,17 +58,24 @@
 	margin-right: 40%;
 }
 
+/*remove list bullets and ensure it takes up the full width available*/
 .upgradeList{
 	list-style: none;
 	margin-top: 15px;
 	width:100%;
 }
 
+/*make the list item a flexbox display for easily spacing the left and right parts*/
 .upgradeList li{
 	margin-bottom:15px;
 	display:flex;
 }
-
+/*
+style the button
+move to the right, add spacing around it and round the corners
+set font size, cursor type and colour
+add background colour and shadow
+*/
 .removeBtn{
 	display:inline-block;
 	float:right;
@@ -75,19 +90,18 @@
     box-shadow: 0px 2px 0px 0px #660000;
 
 }
-
+/*when the button is clicked translate down slightly and decrease shadow to give the 'clicl' effect*/
 .removeBtn:active {
     transform: translate(0px, 2px);
     -webkit-transform: translate(0px, 2px);
     box-shadow: 0px 1px 0px 0px;
 }
-
+/*lighten the background colour on hover*/
 .removeBtn:hover {
     background-color: #ff3333;
 }
 
-
-
+/*align and position to the left with a slight space*/
 .leftPart{
 	float:left;
 	flex:1;
@@ -96,6 +110,7 @@
     text-align: left;
 }
 
+/*align and position to the right with a slight space*/
 .rightPart{
 	float:right;
 	margin-right: 5%;
@@ -103,7 +118,7 @@
     text-align: right;
 	flex:1
 }
-
+/*align in the center and allow to grow proportionately with the left and right parts*/
 .centerPart{
 	text-align: center;
 	flex:1;
