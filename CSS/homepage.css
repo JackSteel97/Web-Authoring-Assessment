@@ -1,15 +1,22 @@
+/*styles for the homepage, index.html*/
+
+/*use these styles if the screen width is below 1000px*/
 @media only screen and (max-width: 1000px) {
+	/*allow the main content to wrap onto a new line*/
 	#mainContent {
 		display: flex;
 		flex-wrap: wrap;
 		width: 100%;
 	}
+	/*remove the categories quick links*/
 	#categories {
 		display: none;
 	}
 }
 
+/*use these styles if the screen width is above 1000px*/
 @media only screen and (min-width: 1000px) {
+	/*return to regular one line flex display for the main content*/
 	#mainContent {
 		display: flex;
 		width: 100%
@@ -21,6 +28,12 @@
 	margin-bottom: 10px;
 }
 
+/*
+set the flex properties for this section, allow it to grow and set a default width of 10%
+move it to the left side, add spacing and a shadow
+round the corners
+make its height 15% of the viewport height
+*/
 #categories {
 	flex: 1 0 10%;
 	float: left;
@@ -31,6 +44,7 @@
 	height: 15vh;
 }
 
+/*add some colour and underline the text when a quick link is hovered over*/
 #categoryList li a:hover {
 	color: darkblue;
 	text-decoration: underline;
@@ -38,22 +52,28 @@
 
 
 }
+/*set flex properties for the twitter feed and add a shadow*/
 #twitterFeed {
 	margin: 0px;
 	flex: 1 0 40%;
 	box-shadow: -1px 1px 20px 0px rgba(0, 0, 0, 0.2);
 }
+
+/*make sure the intro fills the full width of the screen*/
 #intro {
 	clear: both;
 	text-align: center;
 	margin-top: 10px;
 }
+
+/*put the slideshow in the center and give it slightly more space than the surrounding flex elements*/
 #featuredSlideShow {
 	text-align: center;
 	flex: 2 0 40%;
 	padding: 5px;
 	width: 100%;
 }
+/*make the slideshow 80% the height of the viewport*/
 #slideshowContainer {
 	margin-top: 3px;
 	height: 80vh;
