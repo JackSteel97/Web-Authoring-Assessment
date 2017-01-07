@@ -1,0 +1,8 @@
+#eventsList{
+	list-style: none;
+}
+
+#eventsList li{
+	display:block;
+	margin:10px;
+}
