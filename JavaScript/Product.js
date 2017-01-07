@@ -1,3 +1,5 @@
+//This is a class for storing and manipulating the data relating to each product easily
+//setup the constructor for this class
 function Product(aName, aDescription, aPrice, aThumbnailPath, aBasePath, aObjFile, aMtlFile, aType) {
 	this.name = aName;
 	this.description = aDescription;
@@ -11,6 +13,7 @@ function Product(aName, aDescription, aPrice, aThumbnailPath, aBasePath, aObjFil
 	this.type = aType
 	this.upgrades = [];
 }
+//assign the methods in object literal
 Product.prototype = {
 	constructor: Product
 	, getName: function () {
@@ -47,26 +50,37 @@ Product.prototype = {
 		this.price = aPrice;
 	}
 	, calculateNewPrice: function () {
+		//start the price at the base price
 		var newPrice = this.basePrice;
+		//loop through the upgrades, one by one
 		for (var i = 0; i < this.upgrades.length; i++) {
-			console.log(this.upgrades[i].getPrice());
+			//add the upgrade price to the total price
 			newPrice += this.upgrades[i].getPrice();
 		}
+		//set the calculated price
 		this.price = newPrice;
 	}
 	, addUpgrade: function (upgradeName, upgradePrice, upgradeValue) {
+		//loop through the upgrades, one by one
 		for (var i = 0; i < this.upgrades.length; i++) {
+			//if the upgrade has the same name as the upgrade we are trying to add then it just needs altering
 			if (this.upgrades[i].getName().toString().toLowerCase() == upgradeName.toString().toLowerCase()) {
+				//update the values and then return
 				this.upgrades[i].setPrice(upgradePrice);
 				this.upgrades[i].setValue(upgradeValue);
 				return;
 			}
 		}
+		//if the upgrade didn't exist in our search above, then add it from scratch
 		this.upgrades.push(new Upgrade(upgradeName, upgradePrice, upgradeValue));
-	}, removeUpgrade: function(upgradeName){
-		for(var i = 0; i<this.upgrades.length; i++){
-			if(this.upgrades[i].getName().toString().toLowerCase() == upgradeName.toString().toLowerCase()){
-				this.upgrades.splice(i,1);
+	}
+	, removeUpgrade: function (upgradeName) {
+		//loop through the upgrades, one by one
+		for (var i = 0; i < this.upgrades.length; i++) {
+			//if this upgrade matches the specified name
+			if (this.upgrades[i].getName().toString().toLowerCase() == upgradeName.toString().toLowerCase()) {
+				//remove it from the array and return
+				this.upgrades.splice(i, 1);
 				return;
 			}
 		}
