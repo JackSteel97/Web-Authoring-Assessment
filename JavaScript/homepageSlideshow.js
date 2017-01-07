@@ -1,22 +1,34 @@
+//declare an index counter and set to 0
 var currentIndex = 0;
+//declare a global variable for holding the featured products
 var prods;
+
+//when the document loads
 $(document).ready(function ($) {
+	//get the featured products
 	prods = initaliseProducts();
+	//start the slideshow and change every 15 seconds
 	startSlideshow();
-	setInterval(startSlideshow, 30000);
+	setInterval(startSlideshow, 15000);
+	//set a click listener on the slideshow
 	$("#slideshowContainer").click(function (event) {
+		//get the currently displayed product and add to localstorage before moving to the product detail page
 		localStorage.setItem("currentProduct", JSON.stringify(prods[currentIndex-1]));
 		window.location.href = "productdetail.html";
 	})
 });
 
 function startSlideshow() {
-	console.log("slideshow");
+	//get the product to be displayed
 	var currentProd = prods[currentIndex];
+	//remove the previous product if it exists
 	$("#slideshowContainer canvas").remove();
+	//setup the new product
 	var display3D = new Vehicle3D(document.getElementById("slideshowContainer"), currentProd, true, 10, 4, 0, true);
 	display3D.setPainting(false);
+	//increment the index counter
 	currentIndex++;
+	//loop the counter back to start if it exceeds the max product index
 	if (currentIndex > prods.length - 1) {
 		currentIndex = 0;
 	}
