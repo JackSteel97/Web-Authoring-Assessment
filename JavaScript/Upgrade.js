@@ -1,9 +1,14 @@
+//class for an upgrade, to be used in conjuction with the Product class
+//delcare constructor for this class
 function Upgrade(aName, aPrice, aValue) {
+	//set properties
 	this.name = aName;
 	this.price = aPrice;
 	this.value = aValue;
 }
+//declare class as object literal
 Upgrade.prototype = {
+	//set methods
 	constructor: Upgrade
 	, getName: function () {
 		return this.name;
