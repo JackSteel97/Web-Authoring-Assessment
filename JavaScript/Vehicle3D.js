@@ -1,3 +1,14 @@
+/*
+	Class for the handling of 3D model rendering in browser.
+
+	Built using the open source library "THREE.js" by 'Mrdoob' on GitHub
+	All files containing the library source code, along with a copy of the license can be found in /Javascript/Three.js
+		<Reference>
+			mrdoob (2017) Mrdoob/three.Js. Available at: https://github.com/mrdoob/three.js (Accessed: 20 December 2016).
+		</Reference>
+
+	The following code was written by me, adapting some parts from examples contained in the open source repository to a general Object-Oriented style handler.
+*/
 function Vehicle3D(theContainer, theProduct, theAllowZoom = false, theCameraStartDistance = 10, theCameraStartHeight = 5, rotationNeeded = 0, theAutoRotate = false) {
 	//container is the element the model will be drawn inside
 	this.container = theContainer;
