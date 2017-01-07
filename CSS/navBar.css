@@ -1,31 +1,47 @@
+/*
+styles for the nav bar
+since every page has a nav bar we also include styles that should apply sitewide here too.
+*/
+/*we're using google fonts 'Open Sans' so import it*/
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700,800&subset=latin-ext');
+
+/*use these styles when the screen is smaller than 1130px*/
 @media only screen and (max-width: 1130px) {
-	/*screen is smaller than */
+	/*remove the logo*/
 	#logo {
 		display: none;
 	}
+	/*make each button appear on its own line*/
 	.navBtn {
 		display: block;
 	}
+	/*remove the visual separators*/
 	.navSeparator {
 		display: none;
 	}
+	/*resize the cart icon*/
 	#cartBtn {
 		width: 33%;
 		vertical-align: middle;
 	}
+	/*display the menu button, size and colour it too*/
 	.hoverMenu {
 		display: block;
 		color: 0d0d0d;
 		height:10vh;
 		font-size: 2em;
 	}
+	/*make it full screen width*/
 	nav {
 		position: relative;
 		display: inline-block;
 		width:100%;
 	}
-
+	/*
+	hide the navigation bar content
+	position it below the menu as a dropdown
+	add a shadow
+	*/
 	#navBar{
 	display: none;
 	position: absolute;
@@ -34,30 +50,34 @@
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 1;
 	}
-
+	/*when the menu is hovered over, display the dropdown navigation*/
 	nav:hover #navBar{
 		display:block;
 	}
-
+	/*when each navigation item is hovered over change it's background colour*/
 	#navBar .navBtn:hover{
 		background-color: #808080;
 	}
 }
 
+/*use these styles if the screen is wider than 1131px*/
 @media only screen and (min-width: 1131px) {
-	/*screen is bigger than*/
+	/*display the navigation buttons one one line*/
 	.navBtn {
 		display: inline;
 		padding-left: 5%;
 		padding-right: 5%;
 	}
+	/*resize the cart icon*/
 	#cartBtn {
 		width: 3%;
 		vertical-align: middle;
 	}
+	/*hide the dropdown menu*/
 	.hoverMenu {
 		display: none;
 	}
+	/*add spacing and a shadow*/
 	nav {
 		margin-bottom: 25px;
 		box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
@@ -66,32 +86,40 @@
 
 }
 
+/*
+remove default spacing for all elements
+set the font for all elements to the imported open sans
+if open sans is not supported then default to sans-serif, the nearest common match
+*/
 * {
 	padding: 0px;
 	margin: 0px;
-}
-
-body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+/*add spacing back and default colour for paragraphs*/
 p {
 	margin: 20px;
-}
-
-h1 {
 	color: #0d0d0d;
 }
 
+/*add default colour for headings*/
+h1,h2,h3,h4 {
+	color: #0d0d0d;
+}
+
+/*align the nav bar text and set font size*/
 #navBar {
 	text-align: center;
 	font-size: 28px;
 }
 
+/*vertically align the logo*/
 #logo {
 	vertical-align: middle;
 }
 
+/*remove all decoration and colour changes from a tags in a list*/
 li a {
 	text-decoration: none;
 	color: black;
@@ -107,11 +135,13 @@ li a:visited {
 	color: black;
 }
 
+/*set up the dropdown for products*/
 .dropdown {
 	position: relative;
 	display: inline-block;
 }
 
+/*hide the dropdown content and position it below the products button with a shadow ready to be displayed*/
 .dropdown-content {
 	display: none;
 	position: absolute;
@@ -121,26 +151,30 @@ li a:visited {
 	z-index: 1;
 }
 
+/*display the dropdown content when the products link is hovered over*/
 .dropdown:hover .dropdown-content {
 	display: block;
 }
 
+/*style the text for each dropdown element and make sure it has its own line*/
 .dropdown-content a {
 	color: black;
 	padding: 12px;
 	text-decoration: none;
 	display: block;
 }
-
+/*change the background colour when hovering over it*/
 .dropdown-content a:hover {
 	background-color: #808080;
 }
 
+/*set a sitewide title text, using a box shadow for 3D effect*/
 .title {
 	box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
 	text-align: center;
 }
 
+/*make sure the cart icon appears on the same line as the rest of the navbar*/
 .navCartBtn {
 	display: inline;
 }
