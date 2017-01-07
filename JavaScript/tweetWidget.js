@@ -1,5 +1,8 @@
 // twitter widget
-
+/*
+	Reference:
+	Twitter (2016) Embedded Timelines — Twitter developers. Available at: https://dev.twitter.com/web/embedded-timelines (Accessed: 7 January 2017).
+*/
 window.twttr = (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0],
       t = window.twttr || {};
