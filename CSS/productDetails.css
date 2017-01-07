@@ -1,34 +1,45 @@
+/*styles for the product detail page*/
+
+/*set the width and height for the 3D display*/
 #Container3D {
     width: 100%;
-    height: 500px;
-    /*Testing
-    background-color: black;
-    */
+    height: 80vh;
 }
 
+/*
+make the controls text slightly transparent to make them less distracting
+make sure they take up the whole width
+center the text
+*/
 #controls {
-    opacity: 0.5;
+    opacity: 0.6;
     margin: 0px;
     text-align: center;
     width: 100%;
 }
 
+/*set flex properties and default width for the product info section*/
 #productInfo {
     width: 20%;
     flex: 1;
 }
 
+/*set the flex property for the configurator section*/
 #config {
     flex: 1;
 }
 
+/*override title styles to make them work with the flexbox layout*/
 .title {
-
     width: 100%;
     margin: 0px;
     padding: 0px;
 }
 
+/*
+set the flex properties for the total section
+also, add a vertical border on each side
+*/
 #totaller {
     flex: 0 0 30%;
     border-left-style: solid;
@@ -37,16 +48,21 @@
     border-right-width: thin;
 }
 
+/*remove bullets from list*/
 #partsList{
 	list-style: none;
-
 }
 
+/*set the list as a flex display to help position the left and right parts equally*/
 #partsList li{
 	margin-bottom:15px;
 	display:flex;
 }
 
+/*
+move to the left side, allow to grow in proportion with the other element
+add a margin on the left for spacing and align text to left
+*/
 .leftPart{
 	float:left;
 	flex:1;
@@ -55,6 +71,10 @@
     text-align: left;
 }
 
+/*
+move to the right side, allow to grow in proportion with the other element
+add a margin on the right for spacing and align text to right
+*/
 .rightPart{
 	float:right;
 	margin-right: 10%;
@@ -62,16 +82,19 @@
     text-align: right;
 	flex:1
 }
+
+/*set the details section as a flexbox display*/
 #details {
     display: flex;
 }
 
+/*add font formatting to base price*/
 #prodBasePrice {
     font-weight: normal;
     margin: 20px;
     text-decoration: underline;
 }
-
+/*add spacing, font sizing and move the right*/
 #totalPrice {
     display: inline-block;
     margin:15px;
@@ -79,7 +102,14 @@
     float:right;
     text-align: right;
 }
-
+/*
+style the button for adding to cart
+add spacing around it
+slightly round the corners
+expand background around text with padding
+set font size, cursor type and font colour
+add a background colour and shadow
+*/
 .cartBtn {
     margin: 10px;
     border-radius: 2px;
@@ -93,36 +123,48 @@
 
 }
 
+/*when the button is clicked translate it downwards a bit and reduce the shadow to give the 'click' effect*/
 .cartBtn:active {
     transform: translate(0px, 2px);
     -webkit-transform: translate(0px, 2px);
     box-shadow: 0px 1px 0px 0px;
 }
 
+/*lighten the background colour on hover*/
 .cartBtn:hover {
     background-color: #00ff55;
 }
 
+/*add spacing around horizontal rule*/
 #totaller hr {
     margin-top:10px;
     margin-bottom:10px;
 }
-
+/*remove bullets from list*/
 #configurator{
     list-style: none;
 }
-
+/*add spacing to list items*/
 #configurator li{
     margin:10px;
 }
+
 #display{
     position: relative;
 }
+/*
+style the loading overlay
+set font size and colour
+use a table display to easily center the text, vertically and horizontally
+make it the same size as the 3D display
+make it slightly transparent
+add transition timing for opacity fade in
+*/
 #loadingDisplay {
     font-size:32px;
     color: black;
     display: table;
-    height: 500px;
+    height: 80vh;
     left: 0;
     position: absolute;
     top: 0;
@@ -134,7 +176,7 @@
     transition: opacity 500ms;
 }
 
-
+/*setup table display cell for loading text and align to center*/
 #loadingDisplay span {
     display: table-cell;
     text-align: center;
