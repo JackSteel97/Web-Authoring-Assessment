@@ -1,65 +1,46 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <title>BROIBAC - Contact</title>
-
-    <link rel="icon" type="image/png" href="images/logo/icon.png" />
-    <link rel="stylesheet" type="text/css" href="CSS/navBar.css" />
+	<meta charset="utf-8" />
+	<title>BROIBAC - Contact</title>
+	<link rel="icon" type="image/png" href="images/logo/icon.png" />
+	<link rel="stylesheet" type="text/css" href="CSS/navBar.css" />
 	<link rel="stylesheet" type="text/css" href="CSS/footer.css" />
-	<link rel="stylesheet" type="text/css" href="CSS/contactPage.css" />
+	<link rel="stylesheet" type="text/css" href="CSS/contactPage.css" /> </head>
 
-
-</head>
 <body>
-    <header>
-        <nav>
+	<!--Contains navigation bar shown at top of screen-->
+	<header>
+		<nav>
+			<!--menu button for when screen is too small for full size menu-->
 			<span class="hoverMenu title"><h1>Menu</h1></span>
-            <ul id="navBar">
-                <li class="navBtn" id="homeBtn"><a href="index.html">Home</a></li>
-
-                <span class="navSeparator">|</span>
-
-                <li class="navBtn" id="productBtn">
-
-                    <div class="dropdown">
-                        Products
-                        <div class="dropdown-content">
-                            <a href="land.html">Land</a>
-                            <a href="air.html">Air</a>
-                            <a href="sea.html">Sea</a>
-                        </div>
-
-                    </div>
-
-                </li>
-
-                <li class="navBtn" id="navLogo">
-                    <a href="index.html">
-                        <img id="logo" src="images/logo/small.png" alt="BROIBAC Logo" width="10%" />
-                    </a>
-                </li>
-
-                <li class="navBtn" id="eventsBtn"><a href="events.html">Events</a></li>
-
-				<span class="navSeparator">|</span>
-
-                <li class="navBtn" id="contactBtn"><a href="contact.html">Contact</a></li>
+			<!--unordered list to contain navigation buttons keeping everything equidistant-->
+			<ul id="navBar">
+				<li class="navBtn" id="homeBtn"><a href="index.html">Home</a></li>
+				<!--visual seperator--><span class="navSeparator">|</span>
+				<li class="navBtn" id="productBtn">
+					<!--this button has a drop down selection for the categories-->
+					<div class="dropdown"> Products
+						<!--this div contains the content to be displayed or hidden with the dropdown-->
+						<div class="dropdown-content"> <a href="land.html">Land</a> <a href="air.html">Air</a> <a href="sea.html">Sea</a> </div>
+					</div>
+				</li>
+				<li class="navBtn" id="navLogo">
+					<a href="index.html"> <img id="logo" src="images/logo/small.png" alt="BROIBAC Logo" width="10%" /> </a>
+				</li>
+				<li class="navBtn" id="eventsBtn"><a href="events.html">Events</a></li> <span class="navSeparator">|</span>
+				<li class="navBtn" id="contactBtn"><a href="contact.html">Contact</a></li>
 				<li class="navCartBtn">
 					<a href="shoppingcart.html"> <img id="cartBtn" src="images/Cart.png" alt="Shopping Cart" /> </a>
 				</li>
-            </ul>
-
-        </nav>
-    </header>
-	
-	
-	<section id="contactDetails" >
+			</ul>
+		</nav>
+	</header>
+	<!--section containing contact details in an unordered list-->
+	<section id="contactDetails">
 		<div class="title">
-			<h1>Contact Details</h1>
-		</div>
-		
+			<h1>Contact Details</h1> </div>
 		<article id="details">
 			<ul id="detailsList">
 				<li>Address: Brayford Pool, Lincoln, LN6 7TS</li>
@@ -69,35 +50,35 @@
 			</ul>
 		</article>
 	</section>
-	
+	<!--section containing an embeded google map of the location-->
 	<section id="map">
 		<h1 class="title">Where to Find Us</h1>
 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1194.1980765118012!2d-0.5497713415885213!3d53.228674594988654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48785b263b980fe5%3A0x7a59b9683e50bb96!2sLincoln+LN6+7TS!5e0!3m2!1sen!2suk!4v1479645342148" width="600" height="500" frameborder="0" style="border:0" allowfullscreen id="mapFrame"></iframe>
 	</section>
-	
-	
+	<!--footer contains extra navigation and an address-->
 	<footer>
-			<div id="nav">
-				<ul id="navList">
-					<li><a href="index.html">Home</a></li>
-					<li><hr/></li>
-					<li><a href="land.html">Land</a></li>
-					<li><a href="air.html">Air</a></li>
-					<li><a href="sea.html">Sea</a></li>
-					<li><hr/></li>
-					<li><a href="events.html">Events</a></li>
-					<li><a href="contact.html">Contact</a></li>
-				</ul>
-			</div>
-
-			<div id="address">
-				<ul>
-					<li>Brayford Pool, Lincoln, LN6 7TS</li>
-				</ul>
-			</div>
-
-		</footer>
-	
-	
+		<div id="nav">
+			<ul id="navList">
+				<li><a href="index.html">Home</a></li>
+				<li>
+					<hr/>
+				</li>
+				<li><a href="land.html">Land</a></li>
+				<li><a href="air.html">Air</a></li>
+				<li><a href="sea.html">Sea</a></li>
+				<li>
+					<hr/>
+				</li>
+				<li><a href="events.html">Events</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</div>
+		<div id="address">
+			<ul>
+				<li>Brayford Pool, Lincoln, LN6 7TS</li>
+			</ul>
+		</div>
+	</footer>
 </body>
+
 </html>

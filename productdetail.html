@@ -20,59 +20,51 @@
 </head>
 
 <body>
-	 <header>
-        <nav>
-			<span class="hoverMenu title"><h1>Menu</h1></span>
-            <ul id="navBar">
-                <li class="navBtn" id="homeBtn"><a href="index.html">Home</a></li>
-
-                <span class="navSeparator">|</span>
-
-                <li class="navBtn" id="productBtn">
-
-                    <div class="dropdown">
-                        Products
-                        <div class="dropdown-content">
-                            <a href="land.html">Land</a>
-                            <a href="air.html">Air</a>
-                            <a href="sea.html">Sea</a>
-                        </div>
-
-                    </div>
-
-                </li>
-
-                <li class="navBtn" id="navLogo">
-                    <a href="index.html">
-                        <img id="logo" src="images/logo/small.png" alt="BROIBAC Logo" width="10%" />
-                    </a>
-                </li>
-
-                <li class="navBtn" id="eventsBtn"><a href="events.html">Events</a></li>
-
-				<span class="navSeparator">|</span>
-
-                <li class="navBtn" id="contactBtn"><a href="contact.html">Contact</a></li>
+	<!--Contains navigation bar shown at top of screen-->
+	<header>
+		<nav>
+			<!--menu button for when screen is too small for full size menu--><span class="hoverMenu title"><h1>Menu</h1></span>
+			<!--unordered list to contain navigation buttons keeping everything equidistant-->
+			<ul id="navBar">
+				<li class="navBtn" id="homeBtn"><a href="index.html">Home</a></li>
+				<!--visual seperator--><span class="navSeparator">|</span>
+				<li class="navBtn" id="productBtn">
+					<!--this button has a drop down selection for the categories-->
+					<div class="dropdown"> Products
+						<!--this div contains the content to be displayed or hidden with the dropdown-->
+						<div class="dropdown-content"> <a href="land.html">Land</a> <a href="air.html">Air</a> <a href="sea.html">Sea</a> </div>
+					</div>
+				</li>
+				<li class="navBtn" id="navLogo">
+					<a href="index.html"> <img id="logo" src="images/logo/small.png" alt="BROIBAC Logo" width="10%" /> </a>
+				</li>
+				<li class="navBtn" id="eventsBtn"><a href="events.html">Events</a></li> <span class="navSeparator">|</span>
+				<li class="navBtn" id="contactBtn"><a href="contact.html">Contact</a></li>
 				<li class="navCartBtn">
 					<a href="shoppingcart.html"> <img id="cartBtn" src="images/Cart.png" alt="Shopping Cart" /> </a>
 				</li>
-            </ul>
-
-        </nav>
-    </header>
+			</ul>
+		</nav>
+	</header>
+	<!--Main content section-->
 	<section>
+		<!--container for the 3D display, also holds the loading display that is hidden when the model has loaded-->
 		<div id="display">
 			<div id="loadingDisplay"><span>Loading...</span></div>
 			<div id="Container3D"></div>
 		</div>
+		<!--simple controls description to inform the user, just below the 3D display-->
 		<p id="controls">Left Click/Drag - Paint/Rotate Camera&emsp;&emsp;Right Mouse - Pan Camera&emsp;&emsp;Scroll Wheel - Zoom</p>
+		<!--section containing the product details and customisation-->
 		<section id="details">
+			<!--contains the product name, based price, and description, formatted into a column-->
 			<article id="productInfo">
 				<div class="title">
 					<h1 id="prodName">Product Name</h1> </div>
 				<h3 id="prodBasePrice">£50,000</h3>
 				<p id="prodDescription">This is a description of this product</p>
 			</article>
+			<!--center column contains the total price, any added extras the user has chosen, and an 'add to cart' button-->
 			<article id="totaller">
 				<div class="title">
 					<h1>Total</h1></div> <a class="cartBtn">Add To Cart</a>
@@ -80,19 +72,23 @@
 				<hr/>
 				<ul id="partsList"> </ul>
 			</article>
+			<!--final column contains the main configurator options.-->
 			<article id="config">
 				<div class="title">
 					<h1>Customise</h1> </div>
+				<!--
+				Unordered list containing the paint colour selector
+				Will also be populated with product specific customisation inputs by javascript
+				-->
 				<ul id="configurator">
 					<li>
 						<label for="colourPicker"><b>Paint Colour: </b></label>
-						<input id="colourPicker" type="color" value="#ff0000" />
-					</li>
-
+						<input id="colourPicker" type="color" value="#ff0000" /> </li>
 				</ul>
 			</article>
 		</section>
 	</section>
+	<!--footer contains extra navigation and an address-->
 	<footer>
 		<div id="nav">
 			<ul id="navList">
