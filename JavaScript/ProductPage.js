@@ -1,43 +1,56 @@
+//script for the product category pages
+//when the documnt loads
 $(document).ready(function ($) {
-    console.log("ready");
+	//delcare a variable and initalise the products array to it
     var prodArr = init();
+	//declare the typeSelector variable
     var typeSelector = 0;
+	//use a switch statement to determine the type of products to display
     switch (CURRENT_PAGE) {
-    case "air":
-        typeSelector = 1;
-        break;
-    case "sea":
-        typeSelector = 2;
-        break;
-    case "land":
-        typeSelector = 0;
-        break;
+		case "air":
+			typeSelector = 1;
+			break;
+		case "sea":
+			typeSelector = 2;
+			break;
+		case "land":
+			typeSelector = 0;
+			break;
     }
+	//loop through the array of products, one by one
     for (var i = 0; i < prodArr.length; i++) {
+		//if the product type matches the type selector
         if (prodArr[i].getType() == typeSelector) {
             //belongs on this page
             addProductToGrid(prodArr[i], i);
         }
     }
+	//add click listener for each product item
     $(".productContainer").click(function (event) {
         onProductGridItemClick(prodArr, $(this));
     });
 });
 
 function openProductPage() {
-    console.log("open product page")
-        window.location.href = "productdetail.html";
+	//change the window location to the product detail page
+	window.location.href = "productdetail.html";
 }
 
 function onProductGridItemClick(prodArr, element) {
+	//get the index from the html data attribute
     var index = element.data("index");
+	//get the product using that index from the array
     var thisProduct = prodArr[index];
+	//JSONify the product object and store in localstorage
     localStorage.setItem("currentProduct", JSON.stringify(thisProduct));
+	//move to the product detail page
     openProductPage();
 }
 
 function addProductToGrid(prod, index) {
+	//HTML for a product grid item, add all the variables in their correct location
     var prodAsHTMLItem = '<li><div data-index="' + index + '" class="productContainer"><a><img src="' + prod.getThumbnailPath() + '" class="productThumb"/><span class="imgOverlayText"><span>Click To Customise!</span></span></a><div class="productDescriptor"><p class="productTitle">' + prod.getName() + '</p><p class="productPrice">£' + prod.getBasePrice().toLocaleString('en-UK',{minimumFractionDigits: 2}) + '</p></div></div></li>';
+	//add the HTML to the unordered list
     $("#productSection ul").append(prodAsHTMLItem);
 }
 
@@ -55,5 +68,6 @@ function init() {
     Products.push(new Product("Row Boat", "A simple wooden rowing boat.", 500, "Images/thumbnails/products/RowBoat.png", "Models/RowBoat/", "OldBoat.obj", "OldBoat.mtl", 2));
     //Yacht
     Products.push(new Product("Yacht", "A Stylish traditional yacht.", 20000, "Images/thumbnails/products/Yacht.png", "Models/Yacht/", "yacht.obj", "yacht.mtl", 2));
+	//more products can be added easily by pushing another product object to the products array
     return Products;
 }
