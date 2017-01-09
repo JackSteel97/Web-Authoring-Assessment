@@ -13,14 +13,14 @@ $(document).ready(function ($) {
 	//set a click listener on the slideshow
 	$("#slideshowContainer").click(function (event) {
 		//get the currently displayed product and add to localstorage before moving to the product detail page
-		localStorage.setItem("currentProduct", JSON.stringify(prods[currentIndex-1]));
+		localStorage.setItem("currentProduct", JSON.stringify(prods[(currentIndex-1) % 3]));
 		window.location.href = "productdetail.html";
 	})
 });
 
 function startSlideshow() {
 	//get the product to be displayed
-	var currentProd = prods[currentIndex];
+	var currentProd = prods[currentIndex % 3];
 	//remove the previous product if it exists
 	$("#slideshowContainer canvas").remove();
 	//setup the new product
@@ -28,10 +28,6 @@ function startSlideshow() {
 	display3D.setPainting(false);
 	//increment the index counter
 	currentIndex++;
-	//loop the counter back to start if it exceeds the max product index
-	if (currentIndex > prods.length - 1) {
-		currentIndex = 0;
-	}
 }
 
 function initaliseProducts() {

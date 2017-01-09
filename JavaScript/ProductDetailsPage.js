@@ -10,6 +10,7 @@ $(document).ready(function ($) {
 		window.location.href = "index.html";
 		return;
 	}
+
 	//get JSON object from storage and map it's attributes to a new product object so it can be used as needed.
 	product = $.extend(new Product(), JSON.parse(localStorage.getItem("currentProduct")));
 	//set the starting values
