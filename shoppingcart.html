@@ -15,59 +15,39 @@
 </head>
 
 <body>
-		<!--Contains navigation bar shown at top of screen-->
-    <header>
-        <nav>
+	<!--Contains navigation bar shown at top of screen-->
+	<header>
+		<nav>
 			<!--menu button for when screen is too small for full size menu-->
 			<h1 class="hoverMenu title">Menu</h1>
 			<!--unordered list to contain navigation buttons keeping everything equidistant-->
-            <ul id="navBar">
-                <li class="navBtn" id="homeBtn"><a href="index.html">Home</a></li>
+			<ul id="navBar">
+				<li class="navBtn" id="homeBtn"><a href="index.html">Home</a></li>
 				<!--visual seperator-->
-                <span class="navSeparator">|</span>
-
-                <li class="navBtn" id="productBtn">
+				<li class="navSeparator">|</li>
+				<li class="navBtn" id="productBtn">
 					<!--this button has a drop down selection for the categories-->
-                    <div class="dropdown">
-                        Products
+					<div class="dropdown"> Products
 						<!--this div contains the content to be displayed or hidden with the dropdown-->
-                        <div class="dropdown-content">
-                            <a href="land.html">Land</a>
-                            <a href="air.html">Air</a>
-                            <a href="sea.html">Sea</a>
-                        </div>
-
-                    </div>
-
-                </li>
-
-                <li class="navBtn" id="navLogo">
-                    <a href="index.html">
-                        <img id="logo" src="images/logo/small.png" alt="BROIBAC Logo" />
-                    </a>
-                </li>
-
-                <li class="navBtn" id="eventsBtn"><a href="events.html">Events</a></li>
-
-				<span class="navSeparator">|</span>
-
-                <li class="navBtn" id="contactBtn"><a href="contact.html">Contact</a></li>
+						<div class="dropdown-content"> <a href="land.html">Land</a> <a href="air.html">Air</a> <a href="sea.html">Sea</a> </div>
+					</div>
+				</li>
+				<li class="navBtn" id="navLogo">
+					<a href="index.html"> <img id="logo" src="images/logo/small.png" alt="BROIBAC Logo" /> </a>
+				</li>
+				<li class="navBtn" id="eventsBtn"><a href="events.html">Events</a></li>
+				<li class="navSeparator">|</li>
+				<li class="navBtn" id="contactBtn"><a href="contact.html">Contact</a></li>
 				<li class="navCartBtn">
 					<a href="shoppingcart.html"> <img id="cartBtn" src="images/Cart.png" alt="Shopping Cart" /> </a>
 				</li>
-            </ul>
-
-        </nav>
-    </header>
-
+			</ul>
+		</nav>
+	</header>
 	<section>
 		<section id="cartItems">
 			<!--An unordered list that is dynamically populated with the user's current cart by javascript-->
-			<ul id="cart">
-
-
-
-			</ul>
+			<ul id="cart"> </ul>
 		</section>
 	</section>
 	<!--footer contains extra navigation and an address-->
@@ -76,14 +56,12 @@
 			<ul id="navList">
 				<li><a href="index.html">Home</a></li>
 				<li>
-					<hr/>
-				</li>
+					<hr/> </li>
 				<li><a href="land.html">Land</a></li>
 				<li><a href="air.html">Air</a></li>
 				<li><a href="sea.html">Sea</a></li>
 				<li>
-					<hr/>
-				</li>
+					<hr/> </li>
 				<li><a href="events.html">Events</a></li>
 				<li><a href="contact.html">Contact</a></li>
 			</ul>
