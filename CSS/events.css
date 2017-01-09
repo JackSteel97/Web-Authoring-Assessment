@@ -25,3 +25,7 @@
 .title {
 	clear:both;
 }
+
+.eventItem img{
+	width:20%;
+}
