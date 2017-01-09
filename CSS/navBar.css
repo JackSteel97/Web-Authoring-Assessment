@@ -31,7 +31,7 @@ since every page has a nav bar we also include styles that should apply sitewide
 	/*display the menu button, size and colour it too*/
 	.hoverMenu {
 		display: block;
-		color: 0d0d0d;
+		color: #0d0d0d;
 		height: 10vh;
 		font-size: 2em;
 	}
