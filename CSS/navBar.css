@@ -83,6 +83,9 @@ since every page has a nav bar we also include styles that should apply sitewide
 		box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
 	}
 
+	#logo{
+		width:10%;
+	}
 
 }
 
