@@ -213,7 +213,7 @@ function populateUpgradesForBlackhawk() {
 
 function populateUpgradesForBoeing787() {
 	//declare the specific HTML for this product. This html string was first built by hardcoding it to the HTML document and then copied here to allow for dynamic addition of different html, without having to hide and show several different sections each time.
-	var specificHTML = '<li> <label for="interiorUpgrade"><b>Interior:</b></label> <div id="interiorUpgrade"> <input type = "radio" name="interior" value = "Standard" data-price="0"/> Standard<br/> <input type = "radio" name="interior" value = "Private Jet Retrofit" data-price="15000000"/> Private Jet Retrofit </div> </li>';
+	var specificHTML = '<li> <label for="interiorUpgrade"><b>Interior:</b></label> <div id="interiorUpgrade"> <input type = "radio" name="interior" value = "Standard" data-price="0" checked/> Standard<br/> <input type = "radio" name="interior" value = "Private Jet Retrofit" data-price="15000000"/> Private Jet Retrofit </div> </li>';
 	$("#configurator").append(specificHTML);
 	//interior
 	$('#interiorUpgrade input:radio').on('change', function () {
@@ -236,7 +236,7 @@ function populateUpgradesForBoeing787() {
 
 function populateUpgradesForAbrams() {
 	//declare the specific HTML for this product. This html string was first built by hardcoding it to the HTML document and then copied here to allow for dynamic addition of different html, without having to hide and show several different sections each time.
-	var specificHTML = '<li> <label for="enginePower"><b>Engine Power:</b></label> <div id="enginePower"> <input type="range" min="1500" max="2500" value="1500" data-price="5000"/> <span id="val">1500 hp</span> </div> </li> <li> <label for="reactiveArmour"><b>Turbo</b></label> <div id="reactiveArmour"> <input type="checkbox" name="reactiveArmour" value="Reactive Armour Plates" data-price="3000000" /> Reactive Armour Plates&emsp; </div> </li> <li> <label for="missileCountermeasures"><b>Turbo</b></label> <div id="missileCountermeasures"> <input type="checkbox" name="missileCountermeasures" value="Missile Countermeasures" data-price="1500000" /> Missile Countermeasures&emsp; </div> </li> <li> <label for="depletedUrainiumArmour"><b>Turbo</b></label> <div id="depletedUrainiumArmour"> <input type="checkbox" name="depletedUrainiumArmour" value="Depleted Urainium Armour" data-price="750000" /> Depleted Urainium Armour&emsp; </div> </li> ';
+	var specificHTML = '<li> <label for="enginePower"><b>Engine Power:</b></label> <div id="enginePower"> <input type="range" min="1500" max="2500" value="1500" data-price="5000"/> <span id="val">1500 hp</span> </div> </li> <li> <label for="reactiveArmour"><b>Reactive Armour:</b></label> <div id="reactiveArmour"> <input type="checkbox" name="reactiveArmour" value="Reactive Armour Plates" data-price="3000000" /> Reactive Armour Plates&emsp; </div> </li> <li> <label for="missileCountermeasures"><b>Missile Countermeasures:</b></label> <div id="missileCountermeasures"> <input type="checkbox" name="missileCountermeasures" value="Missile Countermeasures" data-price="1500000" /> Missile Countermeasures&emsp; </div> </li> <li> <label for="depletedUrainiumArmour"><b>Depleted Urainium Armour:</b></label> <div id="depletedUrainiumArmour"> <input type="checkbox" name="depletedUrainiumArmour" value="Depleted Urainium Armour" data-price="750000" /> Depleted Urainium Armour&emsp; </div> </li> ';
 	//add the html for abrams tank
 	$("#configurator").append(specificHTML);
 	//engine
@@ -331,7 +331,7 @@ function populateUpgradesForYacht() {
 			addToPartsList("name", 'Name: "' + value + '"', "£" + cost.toLocaleString('en-UK', {
 				minimumFractionDigits: 2
 			}));
-			applyUpgradeToProduct("Engraved Name", cost, value);
+			applyUpgradeToProduct("Engraved Name", cost, '"' + value + '"');
 		}
 		updateTotalPrice();
 	});
